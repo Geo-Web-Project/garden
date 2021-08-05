@@ -7,7 +7,9 @@ Stakeholders include:
 - End users
 - [[User Agents in the Geo Web|User agents]]
 - Creators
-- Developers
+- Apps
+- Marketplaces
+- Protocol Developers
 
 The economy is funded through network fees and rewards are distributed from these fees to stakeholders who add value to the network.
 
