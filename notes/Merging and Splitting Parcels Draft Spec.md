@@ -1,0 +1,45 @@
+# Draft Spec - Merging and Splitting Parcels
+
+- Merging
+  - Limit to two parcels only
+  - Must have at least one contiguous pair of coordinates from their respective arrays
+    - Propose a new path that contains all points (no breaks in path)
+  - Accept a new for sale price
+    - Front end suggests adding the two values together
+  - Calculate new expiration date based on
+    - New for sale value
+    - Two previous expiration dates (and implicitly the fee balance)
+    - Any (required) additional network fee payments
+    - 2 week to 2 years still required
+  - Need to choose the surviving parcel id
+  - Example
+    - Both parcels have content
+      - Parcel A - Name = Alice Parcel
+      - Parcel B - Name = Bob&#39;s Parcel
+    - B moves into A
+      - Modify A to have all coordinates
+      - Burn B?
+        - Want to maintain the historical record
+        - Can the ownership of a Ceramic Stream be updated?
+      - Assets owned by parcels is a different question
+        - Can A own B which owns NFT-C?
+        - Otherwise need to change ownership of NFT-C from B to A before B is burned
+        - Iteration through ALL NFTs owned by land parcels scales as the size of the registry grows. Don&#39;t want want linear(+) growth of the computation
+  - How to manage Ceramic streams?
+    - As currently constructed, would we just overwrite?
+    - In the future, content will be more granularly anchored, so we&#39;d want to enable a merge/diff evaluation
+- Splitting
+  - Limit to splitting one parcel into two
+  - New paths of two parcel must be valid with existing conditions (contiguous, no overlap)
+  - User needs to determine two new parcel values
+    - UI suggest 50/50
+    - User can edit
+  - User needs to allocate their network fees across the two parcels
+    - Min and max expiration date still apply
+    - UI can suggest proportional allocation of network fees based on for sale price
+    - User can edit
+  - User needs to select one parcel to maintain the ceramic doc lineage
+  - Other parcel will need a new ceramic doc
+    - Fine to enter new parcel name, links, and gallery in the existing single parcel functions
+  - Asset ownership assumption would be that all assets stay with the unchanged parcel ID
+    - Give user the option to select which assets to move to the new item?
