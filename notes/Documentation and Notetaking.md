@@ -1,6 +1,6 @@
 # Documentation & Note Taking
 
-**Date:** 9/5/2021  
+**Date**:: 2021-08-05
 **Attendees:** Cody & Graven  
 
 ----

@@ -1,6 +1,6 @@
 # Meeting Notes  
-**Date**:  
-**Attendees:**  
+**Date**::  {{date}}
+**Attendees**::   
 
 ---
 
