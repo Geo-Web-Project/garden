@@ -1,7 +1,7 @@
-# 2021-08-13 Status Update (Cody)
+# 2021-08-13 Status Update (@codynhat)
 #status  
 Date:: 2021-08-13
-Author:: Cody
+Author:: [[@codynhat]]
 
 ---
 

@@ -2,7 +2,7 @@
 #meeting 
 
 **Date**:: 2021-08-05
-**Attendees:** Cody & Graven  
+**Attendees**:: [[@codynhat]], [[@gravenp]]
 
 ----
 - The long term vision for the Geo Web is to be publicly governed and maintained

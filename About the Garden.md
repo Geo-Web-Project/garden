@@ -17,6 +17,8 @@ The Garden is simply a collection of plaintext files. These plaintext files _sho
 
 The Garden is stored using Git. The main head of the Garden currently lives in [Github][2], but [Radicle][3] is another option that may be more aligned.
 
+## [[Getting Started with the Garden|Getting Started]]
+
 
 [1]: https://en.wikipedia.org/wiki/Markdown
 [2]: https://github.com/Geo-Web-Project/garden

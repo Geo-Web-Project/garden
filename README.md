@@ -1,2 +1,2 @@
-- [About the Garden](./notes/About the Garden.md)
-- [Getting Started with the Garden](./notes/Getting Started with the Garden.md)
+- [About the Garden](./About the Garden.md)
+- [Getting Started with the Garden](./Getting Started with the Garden.md)

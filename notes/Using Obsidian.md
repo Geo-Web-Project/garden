@@ -8,6 +8,9 @@ A great core plugin for creating notes from templates.
 1. Install from _core plugins_
 2. Configure to use `templates/` directory for templates
 
+### Starred
+Core plugin useful for pinning/starring certain notes.
+
 ### [Obsidian Git](https://github.com/denolehov/obsidian-git)
 A community plugin that makes it easy to push/pull changes from Git.
 
