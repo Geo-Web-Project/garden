@@ -10,5 +10,6 @@ Author:: [[@codynhat]]
 - Organize and research digital garden tools and methodologies
 
 ## This Week
+- Publish garden using Obsidian Publish
 - Reach out to Estuary on storage
 - Deploy smart contracts to a L2 testnet
