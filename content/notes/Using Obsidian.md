@@ -1,3 +1,7 @@
+---
+aliases: ["Obsidian"]
+---
+
 This is a guide to using the [[Recommended Garden Editors|editor]] [Obsidian](https://obsidian.md/) with the Garden.
 
 Get started by cloning the Garden to your machine and opening the repo as a vault in Obsidian.
