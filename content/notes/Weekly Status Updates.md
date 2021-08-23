@@ -1,3 +1,5 @@
+# Weekly Status Updates
+
 Tracks the status updates over time of contributors.
 
 See [[Using Obsidian]] on how to use the Obsidian Dataview plugin to view the results of the queries below.

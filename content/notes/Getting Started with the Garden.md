@@ -1,3 +1,5 @@
+# Getting Started with the Garden
+
 ## 1. Clone the Garden
 Clone the [repo][1] to get started.
 
