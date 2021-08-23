@@ -1,4 +1,4 @@
-# 2021-08-13 Status Update (@codynhat)
+# 2021-08-13 Status Update - @codynhat
 #status  
 Date:: 2021-08-13
 Author:: [[@codynhat]]

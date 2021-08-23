@@ -1,11 +1,11 @@
-# 2021-08-23 Status Update (@codynhat)
+# 2021-08-23 Status Update - @codynhat
 #status  
 Date:: 2021-08-23
 Author:: [[@codynhat]]
 
 ---
 
-## [[2021-08-16 Status Update (@codynhat)|Last Week]]
+## [[2021-08-16 Status Update - @codynhat|Last Week]]
 
 ## This Week
 - [ ] Troubleshoot pinning issues

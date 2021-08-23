@@ -1,4 +1,4 @@
-# 2021-08-09 Status Update (@gravenp)
+# 2021-08-09 Status Update - @gravenp
 #status  
 Date:: 2021-08-09  
 Author:: [[@gravenp]]  

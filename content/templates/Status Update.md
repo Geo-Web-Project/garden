@@ -1,7 +1,7 @@
-# {{date}} Status Update ({{name}})
+# {{date}} Status Update - {{name}}
 #status  
 Date:: {{date}}
-Author:: {{name}}  
+Author:: [[{{name}}]]  
 
 ---
 

@@ -1,4 +1,4 @@
-# 2021-08-17 Status Update (@10dimensions)
+# 2021-08-17 Status Update - @10dimensions
 #status  
 Date:: 2021-08-17
 Author:: [[@10dimensions]]
