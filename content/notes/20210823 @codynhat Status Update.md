@@ -13,6 +13,12 @@ Author:: [[@codynhat]]
 - [ ] Deploy Cloudflare workers to prod w/HTTP metrics
 - [ ] Update Cadastre to use prod workers
 - [x] [Kovan transaction issue](https://github.com/Geo-Web-Project/cadastre/issues/66)
-- [ ] Deploy smart contracts to Arbitrum Rinkeby
-- [ ] Deploy smart contracts to Optimism Kovan
+- [ ] [[Deploying to Arbitrum Rinkeby]]
+	- [x] Deploy contracts
+	- [x] Deploy hosted subgraph
+	- [ ] Fork Cadastre
+- [ ] [[Deploying to Optimistic Kovan]]
+	- [ ] Deploy contracts
+	- [ ] Deploy hosted subgraph
+	- [ ] Fork Cadastre
 - [ ] Investigate what's needed to integrate NFT:DID 

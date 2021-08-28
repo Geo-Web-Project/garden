@@ -30,11 +30,8 @@ Based on our progress and zkSync's, we will decide between waiting for zkSync or
 - zkSync is targeting August 2021 for zkSync 2.0 and full Zinc and Solidity support
 
 ## Existing Projects
-- Arbitrum
-	- [Portal][3]
-- Optimism
-	- Uniswap
-	- Synthetix
+- [Arbitrum][3]
+- [Optimism][5]
 
 ## Ideas
 - Develop Zinc smart contracts before May testnet
@@ -54,3 +51,4 @@ Based on our progress and zkSync's, we will decide between waiting for zkSync or
 [2]: https://medium.com/ethereum-optimism/community-launch-7c9a2a9d3e84
 [3]: https://portal.arbitrum.one
 [4]: https://offchain.medium.com/a-is-for-arbitrum-a-is-for-august-71391582d95b
+[5]: https://community.optimism.io/docs/users/apps.html
