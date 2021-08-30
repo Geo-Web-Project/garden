@@ -5,7 +5,8 @@ Author:: [[@codynhat]]
 
 ---
 
-## [[20210816 @codynhat Status Update|Last Week]]
+## Last Week
+- [[2021-08-16 @codynhat Status Update]]
 
 ## This Week
 - [x] Troubleshoot [pinning issues](https://github.com/Geo-Web-Project/storage-workers/issues/3)

@@ -5,7 +5,8 @@ Author:: [[@codynhat]]
 
 ---
 
-## [[2021-08-13 @codynhat Status Update|Last Week]]
+## Last Week
+- [[2021-08-13 @codynhat Status Update]]
 - Mainly AFK until Friday
 - Organize and research digital garden tools and methodologies
 

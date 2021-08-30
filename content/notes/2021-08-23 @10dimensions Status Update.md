@@ -14,7 +14,7 @@ Notes:
 Also, capped at 85 degrees latitude both N and S.
 - Earth2.io uses unifrom square grid regardless of latitude
 
-![[Pasted image 20210824002414.png]]
+![[../assets/Pasted image 20210824002414.png]]
 
 ## This Week
 - Test & Merge Claim Proceeds.
