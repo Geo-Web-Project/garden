@@ -19,4 +19,8 @@ Notes on attempting to deploy to Arbitrum Rinkeby.
 	- Claiming land script doesn't seem to save state?
 		- Transactions succeed, but future claims do not collide
 	- Discovered an issue with not setting `GeoWebParcel` on deploy
-	- **Should try redeploying [latest contracts](https://github.com/Geo-Web-Project/core-contracts/tree/l2)**
+	- Should try redeploying [latest contracts](https://github.com/Geo-Web-Project/core-contracts/tree/l2)
+		- Getting `missing trie node` error when deploying contracts
+		- Block explorer and RPC endpoint seem screwed up
+		- Tried again later and it worked
+	- Redeployed subgraph

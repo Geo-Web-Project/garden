@@ -23,7 +23,7 @@ Based on our progress and zkSync's, we will decide between waiting for zkSync or
 | -------- | ----------------- | -----------           | ------------------ | ---------------- | -------         | ------ |
 | zkSync   | [Internal only][1] | 2021           | zkRollups          |                  |
 | Optimism | Kovan             | [Restricted][2], Late 2021 | Optimistic rollups |                  | Metamask, Frame | Yes    |
-| Arbitrum | Rinkeby           | [Arbitrum One][4], August 2021        | Optimistic rollups |                  |                 | Yes |
+| Arbitrum | Rinkeby           | Launched. [Arbitrum One][4]        | Optimistic rollups |                  |                 | Yes |
 
 ## Timeline
 - Optimism recently delayed their mainnet launch until later in 2021
