@@ -1,30 +1,50 @@
-# (WIP DRAFT) Land Parcels Owning Tokenized Assets 
-Date (Last Update) :: 2021-08-25
+# Composable Land Parcel NFTs & Real Estate Development Incentives
+Date (Last Update) :: 2021-09-03
 Author :: [[@gravenp]]
 
 ---
+## Proposal
+Implement mechanisms to incentivize private digital real estate development subject to partial common ownership on the Geo Web.
+
+## Motivation
+The Geo Web is an experimentation in mechanism design and property rights as much as it is an augmented reality platform. With partial common ownership as the foundational design for the digital land market, we have the opportunity—the responsibility—to explore uses of the resulting network fees in ways that benefit the public. At a high level, this can mean funding public (non-rivalrous and/or non-excludable) goods and private goods with positive externalities. This proposal explores an idea to encourage the latter type.
+
 ## Introduction
-The Geo Web is an experimentation in property rights and mechanism design as much as it is an augmented reality platform. With partial common ownership as the foundational design for the digital land market, we have the opportunity—the responsibility—to explore uses of the resulting network fees in ways that benefit the public. At a high level, this means funding public goods (non-rivalrous and/or non-excludable) and private goods with positive externalities. This document explores one idea to encourage the latter type of good.
+In the physical world, governments, corporations, NGOs, etc. often attempt to encourage private actions with positive externalities though economic incentives. An example is tax rebates for private individuals and corporations to pursue things like green energy investment or entrepreneurship in an under served area. With the right incentive structure, groups of people can harness the power of distributed decision making (i.e., markets) to achieve societal goals and coordination failures. 
 
-In the physical world, governments attempt to encourage private actions with positive externalities though economic incentives. This can come in the form of tax rebates for private individuals and corporations for things like green energy investment, entrepreneurship in an under served area, etc. With the right incentive structure, the government can harness the power of distributed decision making (i.e., markets) to achieve societal goals and overcome market failures. 
+The Geo Web can utilize its network fee treasury to fund conceptually similar incentives for digital land licensors to invest in their parcels. The incentives should directly benefit licensors through increased utility of their land and indirectly benefit the public through increased aggregate network utility and network fees via land appreciation. 
 
-The Geo Web can utilize its treasury to fund conceptually similar incentives for Geo Web land licensors to invest in their land parcels. The incentives should directly benefit licensors through increased utility of their land and indirectly benefit the public through increased aggregate network utility and network fees via land appreciation. 
-
-The linchpin to this initiative is implementing the mechanism(s) to internalize the value of "digital real estate development" for both the investor and the network. One way this could be achieved is through digital land parcels (NFTs) having the ability to directly own other tokenized assets.
-
-## Concept Overview
-Provide a "network fee rebate" that can only be used to purchase tokenized digital goods that are tied to their land parcel through enforceable mechanisms:
-- The rebate currency (either the native treasury asset or a new ERC-20 token) accrues to the land parcel over time
+## Implementation Overview
+ This proposal relies two foundational 
+ 
+Provide "network fee rebates" that can only be used to purchase tokenized digital goods that are tied to land parcels through enforceable mechanisms:
+- The rebate mechanism is implemented via a smart contract separate from but backed/funded by the network treasury
+- The rebate currency (either the native treasury asset or a new ERC-20 token) accrues to the land parcel (not the licensor) over time
 - The current land parcel licensor can direct funds on behalf of the parcel
 - The funds must be spent on standardized tokenized assets (ERC-721, ERC-1155, etc.) which upon completion of the transaction are owned by the land parcel NFT
 - Tokenized assets can be separated from their parcel, but are subsequently subject to partial common ownership rules
 
-## Details
-Content on the Geo Web can be thought of as straddling two separate, but related planes—the content layer and the smart contract layer.
+## Composability
+Content on the Geo Web can be thought of as straddling two separate, but related planes—the content layer and the property rights layer.
 
-The content layer consists of the protocols and networks (currently Ceramic, IPFS, & Filecoin) that enable the information sharing required to resolve content on the Geo Web. This layer creates utility from digital content and can [enhance the impact of ownership][1]. 
+The content layer consists of the protocols and networks (currently Ceramic, IPFS, & Filecoin) that enable the information sharing required to resolve content on the Geo Web. This layer creates utility from linked digital content and can [enhance the impact of ownership through social norms][1]. 
 
-It does not, however, create technically enforceable property rights (i.e. anyone can link to any digital content, tokenized or not). The concept of ownership is implemented via the smart contract layer, so that is where the investment incentive mechanisms must be implemented.
+Content linking does not, however, create technically enforceable property rights (i.e. anyone can link to any digital content, tokenized or not). The concept of digital ownership on the Geo Web relies on Ethereum smart contracts. 
+
+As it stands, Geo Web land parcels are ERC-721 non-fungible tokens. To realize a vision for "digital real estate development," we need to implement an extension of the ERC-721 standard that allows the land parcels themselves to directly own other tokenized assets. 
+
+This concept has been explored by numerous projects in the Ethereum ecosystem and is commonly referred to as [composable NFTs](https://medium.com/coinmonks/introducing-crypto-composables-ee5701fde217).
+
+[ERC-998](https://github.com/mattlockyer/composables-998/) is a [draft EIP](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-998.md), which includes different approaches to attach ERC-721 and ERC-20 tokens to ERC-721 tokens, that may serve as the basis for a Geo Web implementation.
+
+The Geo Web's digital real estate investment incentive system will require ERC-998 customization and/or supporting logic to enforce other aspects of the desired mechanism design.
+
+Additional work will be required to enforce additional conditions of spending the rebate
+license still subject to harberger taxes
+deal with splits and mergers
+
+## Investment Incentive
+
 
 --- 
 ### Draft Notes
