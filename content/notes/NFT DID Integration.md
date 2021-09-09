@@ -24,6 +24,7 @@ This will enable:
 - Storage workers
 	- [ ] Only provision storage for `did:nft` that is Geo Web land
 - External
+	- [ ] Ceramic ELP nodes deploy NFT DID resolver
 	- [ ] Ceramic ELP nodes support Kovan
 
 
