@@ -19,3 +19,4 @@ Author:: [[@codynhat]]
 - [ ] Deploy Cloudflare workers to prod w/HTTP metrics
 - [ ] Update Cadastre to use prod workers
 - [ ] Investigate what's needed to integrate NFT:DID 
+	- [[NFT DID Integration]]
