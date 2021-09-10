@@ -20,12 +20,13 @@ This will enable:
 		- See [Ceramic docs][1]
 		- Using 3ID connect will work
 - Smart contracts
-	- [ ] Remove content ID
+	- [x] Remove content ID [#19](https://github.com/Geo-Web-Project/core-contracts/pull/19)
+- Subgraph
+	- [x] Remove content ID [#13](https://github.com/Geo-Web-Project/geo-web-subgraph/pull/13)
 - Storage workers
 	- [ ] Only provision storage for `did:nft` that is Geo Web land
 - External
 	- [ ] Ceramic ELP nodes deploy NFT DID resolver
-	- [ ] Ceramic ELP nodes support Kovan
 
 
 ---

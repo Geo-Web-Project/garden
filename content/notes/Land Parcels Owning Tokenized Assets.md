@@ -27,7 +27,7 @@ Provide "network fee rebates" that can only be used to purchase tokenized digita
 ## Composability
 Content on the Geo Web can be thought of as straddling two separate, but related planes—the content layer and the property rights layer.
 
-The content layer consists of the protocols and networks (currently Ceramic, IPFS, & Filecoin) that enable the information sharing required to resolve content on the Geo Web. This layer creates utility from linked digital content and can [enhance the impact of ownership through social norms][1]. 
+The content layer consists of the protocols and networks (currently Ceramic, IPFS, & Filecoin) that enable the information sharing required to resolve content on the Geo Web. This layer creates utility from linked digital content and can enhance the impact of ownership through social norms.[^1]
 
 Content linking does not, however, create technically enforceable property rights (i.e. anyone can link to any digital content, tokenized or not). The concept of digital ownership on the Geo Web relies on Ethereum smart contracts. 
 
@@ -93,4 +93,4 @@ Long-term questions
 ---
 
 ### Footnotes
- [1]: While anyone can technically duplicate and display the content of an NFT, there are social norms that limit the value gained by non-owners doing so. The Geo Web spatial browsers, reading from the content layer, can display content which is anchored to a parcel, but not owned by the land licensor in a way that highlights the discrepancy or not show it at all.
+ [^1]: While anyone can technically duplicate and display the content of an NFT, there are social norms that limit the value gained by non-owners doing so. The Geo Web spatial browsers, reading from the content layer, can display content which is anchored to a parcel, but not owned by the land licensor in a way that highlights the discrepancy or not show it at all.
