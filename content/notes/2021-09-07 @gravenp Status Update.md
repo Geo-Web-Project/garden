@@ -10,5 +10,5 @@ Author:: [[@gravenp]]
 
 ## This Week
 - [ ] Finish draft of [[Land Parcels Owning Tokenized Assets]]
-- [ ] Cadastre testing for profiles, withdraws & search
-- [ ] Gitcoin grant marketing and engagement
+- [x] Cadastre testing for profiles, withdraws & search
+- [x] Gitcoin grant marketing and engagement
