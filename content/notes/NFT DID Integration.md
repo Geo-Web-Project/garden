@@ -16,7 +16,7 @@ This will enable:
 	- [ ] Reads `did:nft` IDX instead of root doc
 	- [ ] Reads `did:nft` Geo Web Pinset
 	- [ ] Writes all streams with `did:nft` as controller
-	- [ ] User's DID must have a `CAIP10Link` and be owner of NFT when signing commits
+	- [x] User's DID must have a `CAIP10Link` and be owner of NFT when signing commits
 		- See [Ceramic docs][1]
 		- Using 3ID connect will work
 - Smart contracts
@@ -26,7 +26,7 @@ This will enable:
 - Storage workers
 	- [ ] Only provision storage for `did:nft` that is Geo Web land
 - External
-	- [ ] Ceramic ELP nodes deploy NFT DID resolver
+	- [x] Ceramic ELP nodes deploy NFT DID resolver
 
 
 ---
