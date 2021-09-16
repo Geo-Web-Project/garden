@@ -11,3 +11,4 @@ Author:: [[@codynhat]]
 ## This Week
 - [ ] [[NFT DID Integration]]
 	- [x] Create a test TileDocument with NFT DID
+	- [ ] Claim transaction is failing on Rinkeby
