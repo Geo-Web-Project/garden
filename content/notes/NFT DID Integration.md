@@ -13,9 +13,12 @@ This will enable:
 
 ## Implementation
 - Cadastre
+	- [ ] Writes to `did:nft` IDX index instead of root doc
+		- Not supported by IDX/Glaze tooling
+		- Could create records and index manually
 	- [ ] Reads `did:nft` IDX instead of root doc
 	- [ ] Reads `did:nft` Geo Web Pinset
-	- [ ] Writes all streams with `did:nft` as controller
+	- [x] Writes all streams with `did:nft` as controller
 	- [x] User's DID must have a `CAIP10Link` and be owner of NFT when signing commits
 		- See [Ceramic docs][1]
 		- Using 3ID connect will work
