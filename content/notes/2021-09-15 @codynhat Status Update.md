@@ -12,3 +12,6 @@ Author:: [[@codynhat]]
 - [ ] [[NFT DID Integration]]
 	- [x] Create a test TileDocument with NFT DID
 	- [x] Claim transaction is failing on Rinkeby
+	- [x] Switched to Clay network
+	- [x] Read/write basic profile
+	- [ ] Read/write media gallery

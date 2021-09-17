@@ -13,10 +13,10 @@ This will enable:
 
 ## Implementation
 - Cadastre
-	- [ ] Writes to `did:nft` IDX index instead of root doc
+	- [x] Writes to `did:nft` IDX index instead of root doc
 		- Not supported by IDX/Glaze tooling
 		- Could create records and index manually
-	- [ ] Reads `did:nft` IDX instead of root doc
+	- [x] Reads `did:nft` IDX instead of root doc
 	- [ ] Reads `did:nft` Geo Web Pinset
 	- [x] Writes all streams with `did:nft` as controller
 	- [x] User's DID must have a `CAIP10Link` and be owner of NFT when signing commits
@@ -29,7 +29,7 @@ This will enable:
 - Storage workers
 	- [ ] Only provision storage for `did:nft` that is Geo Web land
 - External
-	- [x] Ceramic ELP nodes deploy NFT DID resolver
+	- [ ] Ceramic ELP nodes deploy NFT DID resolver
 
 
 ---
