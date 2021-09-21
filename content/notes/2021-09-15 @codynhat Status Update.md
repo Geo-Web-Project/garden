@@ -14,4 +14,6 @@ Author:: [[@codynhat]]
 	- [x] Claim transaction is failing on Rinkeby
 	- [x] Switched to Clay network
 	- [x] Read/write basic profile
-	- [ ] Read/write media gallery
+	- [x] Read/write media gallery
+	- [ ] Reads `did:nft` Geo Web Pinset
+	- [ ] Storage workers only provision storage for `did:nft` that is Geo Web land
