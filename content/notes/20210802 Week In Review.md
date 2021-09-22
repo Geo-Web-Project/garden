@@ -44,7 +44,7 @@
     * Process for adding new content types is the same as adding new IDX definitions
     * Cadastre no longer needs 3IDs for authentication
     * No additional content types are required for mainnet launch, but would be nice to have if launch is delayed for an external reason
-* [[Merging and Splitting Parcels Draft Spec]] 
+* [[Merging and Splitting Parcels]] 
     * Needs to be implemented before launch
     * There are considerations for content linking and asset ownership under the land NFT
         * Most important is addressing ownerhip of content when merging two parcels (one parcel is going away and don't want assets to be orphaned)
@@ -60,7 +60,7 @@
     * Want to progressively expand voting/voice to all stakeholder groups
         * [Boardroom][4]
         * [SafeSnap][5]
-* [[Fair Launch Auction Draft Spec]]
+* [[Fair Launch Auction]]
     * Needed at launch
         * Marketing and education
     * MEV/frontrunning considerations are the biggest outstanding questions
