@@ -17,7 +17,7 @@ This will enable:
 		- Not supported by IDX/Glaze tooling
 		- Could create records and index manually
 	- [x] Reads `did:nft` IDX instead of root doc
-	- [ ] Reads `did:nft` Geo Web Pinset
+	- [x] Reads `did:nft` Geo Web Pinset
 	- [x] Writes all streams with `did:nft` as controller
 	- [x] User's DID must have a `CAIP10Link` and be owner of NFT when signing commits
 		- See [Ceramic docs][1]
@@ -27,7 +27,7 @@ This will enable:
 - Subgraph
 	- [x] Remove content ID [#13](https://github.com/Geo-Web-Project/geo-web-subgraph/pull/13)
 - Storage workers
-	- [ ] Only provision storage for `did:nft` that is Geo Web land
+	- [x] Only provision storage for `did:nft` that is Geo Web land
 - External
 	- [ ] Ceramic ELP nodes deploy NFT DID resolver
 
