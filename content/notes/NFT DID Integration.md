@@ -30,6 +30,7 @@ This will enable:
 	- [x] Only provision storage for `did:nft` that is Geo Web land
 - External
 	- [ ] Ceramic ELP nodes deploy NFT DID resolver
+	- [ ] Verify our implementation is still IDX compliant (https://github.com/ceramicstudio/js-glaze/issues/68)
 
 
 ---
