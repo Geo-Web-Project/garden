@@ -3,7 +3,7 @@
 # Introduction
 Land licensors' ability to split and merge the parcels that they control is an important part of a functioning digital land market. Initial claim parcel areas cannot persist unchanged forever. Physical land ownership will evolve. The use cases of Geo Web land parcels will evolve. The Geo Web's digital land boundaries must adapt with these forces or utility of the network will suffer.
 
-Beyond the spatial definition of parcel, we must address the impacts to content linking, network fee management, and [[Land Parcels Owning Tokenized Assets|nested asset ownership]] in this initiative.
+Beyond the spatial definition of parcel, we must address the impacts to content linking, network fee management, and [[Composable Land Parcel NFTs & Real Estate Development Incentives|nested asset ownership]] in this initiative.
 
 This document outlines the smart contract, content layer, and user interface requirements to support the merging and splitting of Geo Web land parcels.
 
@@ -21,7 +21,7 @@ This document outlines the smart contract, content layer, and user interface req
 		- The new expiration date should be subject to the exiting minimum and maximum values for existing parcels
 	- The merged parcel's ID should be set to one of the pre-merge parcel IDs of the licensor's choice
 ### NFT Composability (Pending)
-- The implementation of composable NFT land (i.e. [[Land Parcels Owning Tokenized Assets]]) is yet to be determined, but the guiding principle for merged parcels should be that the ownership record of any children assets should be updated to map to the  surviving parcel before the merged parcels are burned.
+- The implementation of composable NFT land (i.e. [[Composable Land Parcel NFTs & Real Estate Development Incentives]]) is yet to be determined, but the guiding principle for merged parcels should be that the ownership record of any children assets should be updated to map to the  surviving parcel before the merged parcels are burned.
 ### Ceramic Streams
 - Reconciliation of linked content streams from merged parcels depends on the nature of the content and how it is linked. Here are the three categories of content for merged parcels and the default action to be taken:
 	- Parcel-anchored, rivalrous (e.g. parcel name)
@@ -57,7 +57,7 @@ This document outlines the smart contract, content layer, and user interface req
 		- The new expiration dates should be subject to the exiting minimum and maximum values for existing parcels
 	- The first post-split coordinate path listed should be set to inherit the pre-split parcel ID while subsequent coordinate paths receive new parcel IDs
 ### NFT Composability (Pending)
-- The implementation of composable NFT land (i.e. [[Land Parcels Owning Tokenized Assets]]) is yet to be determined, but the guiding principle for split parcels should be that the ownership record of any children assets remains with the original parcel ID unless the licensor explicitly transfers ownership (possibly in a separate transaction).
+- The implementation of composable NFT land (i.e. [[Composable Land Parcel NFTs & Real Estate Development Incentives]]) is yet to be determined, but the guiding principle for split parcels should be that the ownership record of any children assets remains with the original parcel ID unless the licensor explicitly transfers ownership (possibly in a separate transaction).
 ### Ceramic Streams
 - New parcels post-split will have new parcel IDs and subsequently separate IDX profiles
 - Assignment of linked content streams to split parcels depends on the nature of the content and how it is linked. Here are two categories of content for split parcels and the default action to be taken:

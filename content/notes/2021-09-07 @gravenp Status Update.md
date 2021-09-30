@@ -9,6 +9,6 @@ Author:: [[@gravenp]]
 - [[2021-08-30 @gravenp Status Update]]
 
 ## This Week
-- [ ] Finish draft of [[Land Parcels Owning Tokenized Assets]]
+- [ ] Finish draft of [[Composable Land Parcel NFTs & Real Estate Development Incentives]]
 - [x] Cadastre testing for profiles, withdraws & search
 - [x] Gitcoin grant marketing and engagement

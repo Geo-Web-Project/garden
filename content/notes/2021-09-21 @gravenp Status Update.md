@@ -10,5 +10,5 @@ Author:: [[@gravenp]]
 
 ## This Week
 - [ ] Continue work individual initiative specs on [[Roadmap to Mainnet (Q3 2021 Refresh)]]
-- [ ] Finish [[Land Parcels Owning Tokenized Assets]]
-- [ ] Design and prep a POAP for distribution to GR11 supporters
+- [X] Finish [[Composable Land Parcel NFTs & Real Estate Development Incentives]]
+- [X] Design and prep a POAP for distribution to GR11 supporters
