@@ -12,8 +12,10 @@ Author:: [[@codynhat]]
 - Rethinking [[Extending the Geo Web|extensibility]]
 	- [[The Geo Web Grid System is Wrong]]
 	- Parcel needs more functionality (burn, prepend, append, trim)
-	- Split up "Admin" into more modular parts
-		- Claimer
-		- Purchaser
-		- Collector
-		- Accountant
+	- [ ] Write specs for existing features
+		- [ ] [[Draft Proposal - Parcel|Parcel]]
+		- [ ] [[Draft Proposal - License|License]]
+		- [ ] Claimer
+		- [ ] [[Draft Proposal - Accountant]]
+		- [ ] Collector
+		- [ ] Purchaser
