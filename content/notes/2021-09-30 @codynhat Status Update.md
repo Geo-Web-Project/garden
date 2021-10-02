@@ -13,9 +13,10 @@ Author:: [[@codynhat]]
 	- [[The Geo Web Grid System is Wrong]]
 	- Parcel needs more functionality (burn, prepend, append, trim)
 	- [ ] Write specs for existing features
-		- [ ] [[Draft Proposal - Parcel|Parcel]]
-		- [ ] [[Draft Proposal - License|License]]
+		- [ ] [[Draft Proposal - Parcel]]
+		- [ ] [[Draft Proposal - License]]
 		- [ ] Claimer
 		- [ ] [[Draft Proposal - Accountant]]
-		- [ ] Collector
+		- [ ] [[Draft Proposal - ETHExpirationCollector]]
+		- [ ] [[Draft Proposal - License Validator]]
 		- [ ] Purchaser

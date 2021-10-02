@@ -8,28 +8,21 @@ Author :: [[@codynhat]]
 A smart contract that stores accounting information for an always-for-sale license.
 
 ## Parameters
-| Name                      | Type      | Description                                     |
-| ------------------------- | --------- | ----------------------------------------------- |
-| `minValue`                | `uint256` | Minimum value a license can have                |
-| `minExpiration`           | `uint256` | Minimum expiration a license can have (seconds) |
-| `maxExpiration`           | `uint256` | Maximum expiration a license can have (seconds) |
+| Name                      | Type                | Description                                                                                |
+| ------------------------- | ------------------- | ------------------------------------------------------------------------------------------ |
+| `perSecondFeeNumerator`   | `uint256`           | Numerator of contribution fee                                                              |
+| `perSecondFeeDenominator` | `uint256`           | Denominator of contribution fee                                                            |
+| `validator`               | `ILicenseValidator` | Where to find if a license's account is still valid [[Draft Proposal - License Validator]] | 
 
 ## Storage
-| Name          | Type                              | Description                                 |
-| ------------- | --------------------------------- | ------------------------------------------- |
-| `licenseInfo` | `mapping(uint256 => LicenseInfo)` | Stores the accounting info for each license |
-
-```solidity
-struct LicenseInfo {
-	uint256 value;	
-	uint256 expirationTimestamp;
-}
-```
+| Name            | Type                          | Description                                 |
+| --------------- | ----------------------------- | ------------------------------------------- |
+| `licenseValues` | `mapping(uint256 => uint256)` | Stores the self-assessed value for each license |
 
 ## Functions
 
 ### Update Value
-Update the value for a license. Must be greater than `minValue`.
+Update the value for a license.
 
 ```
 function updateValue(uint256 id, uint256 newValue) public
@@ -37,17 +30,14 @@ function updateValue(uint256 id, uint256 newValue) public
 
 `MODIFY_VALUE_ROLE` is required.
 
-### Update Expiration
-Update the expiration for a license. New expiration minus `now` must be greater than `minExpiration` and less than `maxExpiration`.
+### isValid
+Checks `validator` to determine if a license's account is valid and paid.
 
 ```
-function updateExpiration(uint256 id, uint256 newExpirationTimestamp) public
+function isValid(uint256 id) public view returns (bool)
 ```
-
-`MODIFY_EXP_ROLE` is required.
 
 ## Roles
 | Name                | Function Access    |
 | ------------------- | ------------------ |
 | `MODIFY_VALUE_ROLE` | `updateValue`      |
-| `MODIFY_EXP_ROLE`   | `updateExpiration` |
