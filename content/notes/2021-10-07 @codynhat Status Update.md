@@ -14,8 +14,8 @@ Author:: [[@codynhat]]
 	- [ ] Write specs for existing features
 		- [ ] [[Draft Proposal - Parcel]]
 		- [ ] [[Draft Proposal - License]]
-		- [ ] Claimer
 		- [ ] [[Draft Proposal - Accountant]]
 		- [ ] [[Draft Proposal - ETHExpirationCollector]]
 		- [ ] [[Draft Proposal - License Validator]]
+		- [ ] [[Draft Proposal - SimpleClaimer]]
 		- [ ] Purchaser

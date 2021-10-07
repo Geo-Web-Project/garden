@@ -21,11 +21,11 @@ A smart contract that stores accounting information for an always-for-sale licen
 
 ## Functions
 
-### Update Value
-Update the value for a license.
+### Set Value
+Set the value for a license.
 
 ```
-function updateValue(uint256 id, uint256 newValue) public
+function setValue(uint256 id, uint256 newValue) public
 ```
 
 `MODIFY_VALUE_ROLE` is required.
@@ -40,4 +40,4 @@ function isValid(uint256 id) public view returns (bool)
 ## Roles
 | Name                | Function Access    |
 | ------------------- | ------------------ |
-| `MODIFY_VALUE_ROLE` | `updateValue`      |
+| `MODIFY_VALUE_ROLE` | `setValue`      |

@@ -30,11 +30,11 @@ Make a contribution payment for a license. Can be done by anyone.
 function makePayment(uint256 id) public payable
 ```
 
-### Update Value
-Update the value for a license. Can only be done by current licensee.
+### Set Value
+Set the value for a license. Can only be done by current licensee or someone with `MODIFY_VALUE_ROLE`
 
 ```
-function updateValue(uint256 id, uint256 newValue) public
+function setValue(uint256 id, uint256 newValue) public
 ```
 
 ### isValid
@@ -43,6 +43,11 @@ Conforms to [[Draft Proposal - License Validator]]. Checks expiration to determi
 ```
 function isValid(uint256 id) public view returns (bool)
 ```
+
+## Roles
+| Name                | Function Access    |
+| ------------------- | ------------------ |
+| `MODIFY_VALUE_ROLE` | `setValue`      |
 
 ## Required Permissions
 | Contract                                    | Role                | Reason |
