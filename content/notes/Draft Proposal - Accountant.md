@@ -38,6 +38,18 @@ function isValid(uint256 id) public view returns (bool)
 ```
 
 ## Roles
-| Name                | Function Access    |
-| ------------------- | ------------------ |
-| `MODIFY_VALUE_ROLE` | `setValue`      |
+| Name                | Function Access |
+| ------------------- | --------------- |
+| `MODIFY_VALUE_ROLE` | `setValue`      | 
+
+## Diagram
+```nomnoml
+[Accountant | 
+	[Storage |
+		licenseValues
+	]
+	[<table> Functions |
+		setValue() | MODIFY_VALUE_ROLE
+	]
+]
+```

@@ -76,4 +76,21 @@ function trimEnd(uint256 id, uint256 length) public
 | -------------- | ------------------------------------------- |
 | `BUILD_ROLE`   | `build`                                     |
 | `DESTROY_ROLE` | `destroy`                                   |
-| `MODIFY_ROLE`  | `append`, `prepend`, `trimStart`, `trimEnd` | 
+| `MODIFY_ROLE`  | `append`, `prepend`, `trimStart`, `trimEnd` |
+
+## Diagram
+```nomnoml
+[Parcel |
+	[Storage |
+		availabilityIndex |
+		landParcels
+	]
+	[<table> Functions |
+		build() | BUILD_ROLE || 
+		destroy() | DESTROY_ROLE || 
+    	append()
+		prepend()
+		trimStart()
+		trimEnd() | MODIFY_ROLE]
+]
+```

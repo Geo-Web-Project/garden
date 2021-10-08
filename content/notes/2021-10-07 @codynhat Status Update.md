@@ -11,11 +11,12 @@ Author:: [[@codynhat]]
 ## This Week
 - [x] Start discussion around Media Gallery data model (https://github.com/ceramicstudio/datamodels/discussions/22)
 - Rethinking [[Extending the Geo Web|extensibility]]
-	- [ ] Write specs for existing features
-		- [ ] [[Draft Proposal - Parcel]]
-		- [ ] [[Draft Proposal - License]]
-		- [ ] [[Draft Proposal - Accountant]]
-		- [ ] [[Draft Proposal - ETHExpirationCollector]]
-		- [ ] [[Draft Proposal - License Validator]]
-		- [ ] [[Draft Proposal - SimpleClaimer]]
-		- [ ] Purchaser
+	- [x] Write specs for existing features
+		- [x] [[Draft Proposal - Parcel]]
+		- [x] [[Draft Proposal - License]]
+		- [x] [[Draft Proposal - Accountant]]
+		- [x] [[Draft Proposal - ETHExpirationCollector]]
+		- [x] [[Draft Proposal - License Validator]]
+		- [x] [[Draft Proposal - SimpleETHClaimer]]
+		- [x] [[Draft Proposal - ETHPurchaser]]
+		- [x] [[Smart Contract UML Diagram]]

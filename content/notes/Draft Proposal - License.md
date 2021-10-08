@@ -48,4 +48,16 @@ The [ERC-721][1] function `isApprovedForAll` is overridden to always return `tru
 function isApprovedForAll(address owner, address operator) public view
 ```
 
+## Diagram
+```nomnoml
+[License | 
+	[<table> Functions |
+		safeMint() | MINT_ROLE || 
+		pause() 
+		unpause() | PAUSE_ROLE || 
+    	isApprovalForAll() == true | OPERATOR_ROLE
+	]
+]
+```
+
 [1]: https://eips.ethereum.org/EIPS/eip-721

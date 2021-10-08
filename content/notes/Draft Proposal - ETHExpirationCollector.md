@@ -53,3 +53,31 @@ function isValid(uint256 id) public view returns (bool)
 | Contract                                    | Role                | Reason |
 | ------------------------------------------- | ------------------- | ------ |
 | [[Draft Proposal - Accountant\|Accountant]] | `MODIFY_VALUE_ROLE` | Will modify license value on behalf of users, only when a change results in a valid expiration       |
+
+## Diagram
+```nomnoml
+[ETHExpirationCollector | 
+	[Storage |
+		licenseExpirationTimestamps
+	]
+	[<table> Functions |
+		makePayment() | public ||
+		setValue() | MODIFY_VALUE_ROLE or owner
+	]
+]
+
+[<lollipop>MODIFY_VALUE_ROLE]
+
+[ETHExpirationCollector]-[MODIFY_VALUE_ROLE]
+
+[Accountant | 
+	[Storage |
+		licenseValues
+	]
+	[<table> Functions |
+		setValue() | MODIFY_VALUE_ROLE
+	]
+]
+
+[MODIFY_VALUE_ROLE]-+[Accountant]
+```
