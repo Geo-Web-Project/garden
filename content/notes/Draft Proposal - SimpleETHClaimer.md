@@ -19,11 +19,11 @@ function claim(address to, uint64 baseCoordinate, uint256[] calldata path, uint2
 ```
 
 ## Required Permissions
-| Contract                                                            | Role                | Reason                                                                                           |
-| ------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------ |
-| [[Draft Proposal - Parcel\|Parcel]]                                 | `BUILD_ROLE`        | Builds a new parcel with the given base coordinate and path, if the payment and value are valid. |
-| [[Draft Proposal - License\|License]]                               | `MINT_ROLE`         | Mints a license if parcel is successfully minted                                                 |
-| [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_VALUE_ROLE` | Sets initial parcel value when mint is successful                                                |
+| Contract                                                            | Role                       | Reason                                                                                           |
+| ------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------ |
+| [[Draft Proposal - Parcel\|Parcel]]                                 | `BUILD_ROLE`               | Builds a new parcel with the given base coordinate and path, if the payment and value are valid. |
+| [[Draft Proposal - License\|License]]                               | `MINT_ROLE`                | Mints a license if parcel is successfully minted                                                 |
+| [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_CONTRIBUTION_ROLE` | Sets initial contribution rate when mint is successful                                           | 
 
 ## Diagram
 ```nomnoml
@@ -44,8 +44,15 @@ function claim(address to, uint64 baseCoordinate, uint256[] calldata path, uint2
 	prepend()
 	trimStart()
 	trimEnd() | MODIFY_ROLE]
-[<table>ETHExpirationCollector | 
-	setValue() | MODIFY_VALUE_ROLE]
+[ETHExpirationCollector | 
+	[Storage |
+		licenseExpirationTimestamps
+	]
+	[<table> Functions |
+		makePayment() | public ||
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner
+	]
+]
 [<table>License | 
 	safeMint() | MINT_ROLE || 
 	pause() 

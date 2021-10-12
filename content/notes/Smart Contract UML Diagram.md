@@ -20,7 +20,7 @@ Install the [Kroki](https://github.com/gregzuro/obsidian-kroki) plugin
 	]
 	[<table> Functions |
 		makePayment() | public ||
-		setValue() | MODIFY_VALUE_ROLE or owner
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner
 	]
 ]
 [License | 
@@ -33,10 +33,10 @@ Install the [Kroki](https://github.com/gregzuro/obsidian-kroki) plugin
 ]
 [Accountant | 
 	[Storage |
-		licenseValues
+		contributionRates
 	]
 	[<table> Functions |
-		setValue() | MODIFY_VALUE_ROLE
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE
 	]
 ]
 [SimpleETHClaimer|

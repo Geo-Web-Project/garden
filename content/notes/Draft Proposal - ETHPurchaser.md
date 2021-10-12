@@ -15,14 +15,14 @@ None.
 Purchase an existing parcel and set a new value.
 
 ```
-function purchase(uint256 id, address to, uint256 maxPurchasePrice, uint256 newValue) public payable
+function purchase(uint256 id, address to, uint256 maxPurchasePrice, uint256 newRate) public payable
 ```
 
 ## Required Permissions
-| Contract                                                            | Role                | Reason                                            |
-| ------------------------------------------------------------------- | ------------------- | ------------------------------------------------- |
-| [[Draft Proposal - License\|License]]                               | `OPERATOR_ROLE`     | Transfers the license to the new owner            | 
-| [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_VALUE_ROLE` | Sets initial parcel value when mint is successful |
+| Contract                                                            | Role                       | Reason                                                 |
+| ------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------ |
+| [[Draft Proposal - License\|License]]                               | `OPERATOR_ROLE`            | Transfers the license to the new owner                 |
+| [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_CONTRIBUTION_ROLE` | Sets new contribution rate when purchase is successful | 
 
 ## Diagram
 ```nomnoml
@@ -41,7 +41,7 @@ function purchase(uint256 id, address to, uint256 maxPurchasePrice, uint256 newV
 	]
 	[<table> Functions |
 		makePayment() | public ||
-		setValue() | MODIFY_VALUE_ROLE or owner
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner
 	]
 ]
 [License | 

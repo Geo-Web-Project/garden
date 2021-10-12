@@ -47,12 +47,12 @@ function isValid(uint256 id) public view returns (bool)
 ## Roles
 | Name                | Function Access    |
 | ------------------- | ------------------ |
-| `MODIFY_VALUE_ROLE` | `setValue`      |
+| `MODIFY_CONTRIBUTION_ROLE` | `setContributionRate`      |
 
 ## Required Permissions
-| Contract                                    | Role                | Reason |
-| ------------------------------------------- | ------------------- | ------ |
-| [[Draft Proposal - Accountant\|Accountant]] | `MODIFY_VALUE_ROLE` | Will modify license value on behalf of users, only when a change results in a valid expiration       |
+| Contract                                    | Role                       | Reason                                                                                                     |
+| ------------------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| [[Draft Proposal - Accountant\|Accountant]] | `MODIFY_CONTRIBUTION_ROLE` | Will modify license contribution rate on behalf of users, only when a change results in a valid expiration |
 
 ## Diagram
 ```nomnoml
@@ -62,22 +62,22 @@ function isValid(uint256 id) public view returns (bool)
 	]
 	[<table> Functions |
 		makePayment() | public ||
-		setValue() | MODIFY_VALUE_ROLE or owner
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner
 	]
 ]
 
-[<lollipop>MODIFY_VALUE_ROLE]
+[<lollipop>MODIFY_CONTRIBUTION_ROLE]
 
-[ETHExpirationCollector]-[MODIFY_VALUE_ROLE]
+[ETHExpirationCollector]-[MODIFY_CONTRIBUTION_ROLE]
 
 [Accountant | 
 	[Storage |
-		licenseValues
+		contributionRates
 	]
 	[<table> Functions |
-		setValue() | MODIFY_VALUE_ROLE
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE
 	]
 ]
 
-[MODIFY_VALUE_ROLE]-+[Accountant]
+[MODIFY_CONTRIBUTION_ROLE]-+[Accountant]
 ```
