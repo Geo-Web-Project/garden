@@ -8,13 +8,13 @@ Author :: [[@codynhat]]
 A smart contract that collects contributions in ETH and stores expiration timestamps to determine balances.
 
 ## Parameters
-| Name            | Type      | Description                        |
-| --------------- | --------- | ---------------------------------- |
-| `minValue`      | `uint256` | Minimum value for a license        |
-| `minExpiration` | `uint256` | Minimum expiration for a license   |
-| `maxExpiration` | `uint256` | Maximum expiration for a license   |
-| `license`       | `IERC721` | ERC721 License used to find owners |
-| `receiver`      | `address` | Receiver of contributions          |
+| Name                  | Type      | Description                             |
+| --------------------- | --------- | --------------------------------------- |
+| `minContributionRate` | `uint256` | Minimum contribution rate for a license |
+| `minExpiration`       | `uint256` | Minimum expiration for a license        |
+| `maxExpiration`       | `uint256` | Maximum expiration for a license        |
+| `license`             | `IERC721` | ERC721 License used to find owners      |
+| `receiver`            | `address` | Receiver of contributions               |
 
 ## Storage
 | Name                          | Type                          | Description                                      |
@@ -30,11 +30,11 @@ Make a contribution payment for a license. Can be done by anyone.
 function makePayment(uint256 id) public payable
 ```
 
-### Set Value
-Set the value for a license. Can only be done by current licensee or someone with `MODIFY_VALUE_ROLE`
+### Set Contribution Rate
+Set the contribution rate for a license. Can only be done by current licensee or someone with `MODIFY_CONTRIBUTION_ROLE`
 
 ```
-function setValue(uint256 id, uint256 newValue) public
+function setContributionRate(uint256 id, uint256 newValue) public payable
 ```
 
 ### isValid
@@ -45,9 +45,9 @@ function isValid(uint256 id) public view returns (bool)
 ```
 
 ## Roles
-| Name                | Function Access    |
-| ------------------- | ------------------ |
-| `MODIFY_CONTRIBUTION_ROLE` | `setContributionRate`      |
+| Name                       | Function Access       |
+| -------------------------- | --------------------- |
+| `MODIFY_CONTRIBUTION_ROLE` | `setContributionRate` |
 
 ## Required Permissions
 | Contract                                    | Role                       | Reason                                                                                                     |
