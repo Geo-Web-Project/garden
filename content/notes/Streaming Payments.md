@@ -44,6 +44,10 @@ Notes on streaming payments. Created after [[@codynhat]] & [[@gravenp]] had a lo
 			- Minimum deposit required
 			- Amount above and beyond that which the user deposits wouldn't be locked
 			- Would still want to show a user their implied expiration date given the network fee rate, but this wouldn't be a value stored on the Geo Web's contracts
+		- It still seems appropriate to utilize a reverse Dutch auction for parcels if their payment flow expires
+			- For well-intentioned licensors, it's less penal for an honest mistake
+			- As long as the auction duration is fairly short (1-2 weeks), licensors trying a "hit and run" type attack (purchase land, raise the price super high, let their stream go dry) shouldn't be very successful. Their risking the full land purchase price on the previous owner not having the patience to wait a few days to reclaim their land
+				- Eventually transitioning to monthly or weekly property transfers could also help limit these type of attacks in event-based scenarios
 ## Fair Launch
 - The initial launch of the land market still deserves extra attention because of the possibility for the heightened potential for volatility and short-term speculators
 - We have always wanted to avoid the *perception* that this land market is designed to "make money," so land claims were designed only to require ongoing network fee payments rather than a one-time claim fee
