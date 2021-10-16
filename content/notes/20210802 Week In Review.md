@@ -60,7 +60,7 @@
     * Want to progressively expand voting/voice to all stakeholder groups
         * [Boardroom][4]
         * [SafeSnap][5]
-* [[Fair Launch Auction]]
+* [[Fair Launch Auction Requirements]]
     * Needed at launch
         * Marketing and education
     * MEV/frontrunning considerations are the biggest outstanding questions

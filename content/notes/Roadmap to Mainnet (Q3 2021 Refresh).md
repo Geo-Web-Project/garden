@@ -18,7 +18,7 @@ Because of these factors, the following roadmap to mainnet focuses on core proto
 - [ ] [[NFT DID Integration|NFT:DID]]
 Integration of NFT:DID affects the core structure of the digital land registry and our overall content linking strategy. It is an important piece to our long-term strategy to support "digital real estate development" and uninterrupted content history. With NFT:DID, a Geo Web land parcel can own its linked content stream instead of the land licensor owning it. NFT:DID also allows us to utilize each [[Land Parcel IDX Index|land parcel's IDX index]] as the "root stream" rather than requiring an explicit data field in the digital land registry. Cody is already working on this initiative and is nearing completion.
 
-- [ ] [[Fair Launch Auction]]
+- [ ] [[Fair Launch Auction Requirements]]
 We are committed to a fair launch of the Geo Web and want to allocate early land claims consistent with the partial common ownership market's design goals. This naturally means that our initial allocation mechanism (a reverse Dutch auction) needs to be ready before launch. This will require smart contact and Cadastre UI updates.
 
 - [ ] Research NFT Composability Standards for Land

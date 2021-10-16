@@ -1,7 +1,7 @@
 # Streaming Payments
 
 First Published :: 2021-10-12
-Last Update :: 2021-10-13
+Last Update :: 2021-10-15
 Author:: [[@gravenp]]
 
 Notes on streaming payments. Created after [[@codynhat]] & [[@gravenp]] had a long conversation on 2021-10-11 and explored the implications of implementing them on the Geo Web.
@@ -52,8 +52,11 @@ Notes on streaming payments. Created after [[@codynhat]] & [[@gravenp]] had a lo
 - The initial launch of the land market still deserves extra attention because of the possibility for the heightened potential for volatility and short-term speculators
 - We have always wanted to avoid the *perception* that this land market is designed to "make money," so land claims were designed only to require ongoing network fee payments rather than a one-time claim fee
 	- Unused deposits weren't refundable by the network, but would be returned via any forced transfer
-- In [[Fair Launch Auction]], we explored our thinking for launch under the deposit-based system 
+- In [[Fair Launch Auction Requirements]], we explored our thinking for launch under the deposit-based system 
 	- The goal has always been to avoid creating a gas price war and/or speculators snatching up high value land without much financial commitment. We want land to go to those that truly value it the most (at this early stage)
 - Ideas to explore
 	- Still using Dutch auction mechanics, users could deposit the equivalent of 1 year (or 2?) of network fees outside of the actual payment stream. The deposit could be returned via an outbound stream or time-locked lump sum. The outbound stream wouldn't be affected by any transfers or price changes of the land parcel itself. This would prevent a claimant from claiming a bunch of parcels during the auction at high prices, hoping that they can flip them at slightly lower prices with their only cost being a short duration of network fees.
 	- We could embrace a one-time claim fee determined via Dutch auction. It's potentially cleaner and could jump start the Geo Web's public goods treasury. Even though we'll be using treasury funds for public goods, initial claimants are putting trust in our multi-sig to actually do that. It seems easier to do that for ongoing "service" payments than upfront payments (trust and fees accrue over time together).
+
+**10/15 Update**
+Per conversations on 10/14 and 10/15 between [[@codynhat]] & [[@gravenp]], we'll proceed with a modified [[Fair Launch Auction Requirements]] design that requires a one-time payment to effect initial claims rather than a system of network fee prepayments or other deposits. This auction design can be simpler to implement, explain, and potentially avoids unintended unfairness from more complex schemes.

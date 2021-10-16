@@ -11,15 +11,17 @@ A smart contract that enables land parcel claims during a reverse Dutch auction 
 | Name                  | Type      | Description                             |
 | --------------------- | --------- | --------------------------------------- |
 | `auctionStart` | `uint256` | Datetime to initialize the auction |
+| `auctionSlow` | `uint256` | Datetime to slow the bid reduction rate |
 | `auctionEnd` | `uint256` | Datetime that the auction concludes |
-| `startingBid` | `uint256` | The starting bid of the auction | 
+| `startingBid` | `uint256` | The starting bid of the auction |
+| `endingBid` | `uint256` | The ongoing claim fee after the auction has concluded |
 
 ## Storage
 None.
 
 ## Functions
 ### Check Auction Price
-Check the current global auction price to make a land parcel claim. (Placeholder Logic: The auction price should be equal to the `startingBid` minus the square root of the time passed since the start of the auction. After `auctionEnd` return 0.)
+Check the current global auction price to make a land parcel claim. See [[Fair Launch Auction Requirements]] for required bid auction logic.
 
 ```
 function checkAuctionPrice() public view
