@@ -20,15 +20,17 @@ Install the [Kroki](https://github.com/gregzuro/obsidian-kroki) plugin
 	]
 	[<table> Functions |
 		makePayment() | public ||
-		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner ||
+		pause() 
+		unpause() | PAUSE_ROLE
 	]
 ]
-[License | 
+[ERC721License | 
 	[<table> Functions |
 		safeMint() | MINT_ROLE || 
+    	isApprovalForAll() == true | OPERATOR_ROLE ||
 		pause() 
-		unpause() | PAUSE_ROLE || 
-    	isApprovalForAll() == true | OPERATOR_ROLE
+		unpause() | PAUSE_ROLE
 	]
 ]
 [Accountant | 
@@ -41,12 +43,16 @@ Install the [Kroki](https://github.com/gregzuro/obsidian-kroki) plugin
 ]
 [SimpleETHClaimer|
 	[<table> Functions |
-		claim() | public
+		claim() | public ||
+		pause() 
+		unpause() | PAUSE_ROLE
 	]
 ]
 [ETHPurchaser|
 	[<table> Functions |
-		purchase() | public
+		purchase() | public ||
+		pause() 
+		unpause() | PAUSE_ROLE
 	]
 ]
 
@@ -60,6 +66,6 @@ Install the [Kroki](https://github.com/gregzuro/obsidian-kroki) plugin
 [ETHExpirationCollector]-[MODIFY_CONTRIBUTION_ROLE (Accountant)]
 [MODIFY_CONTRIBUTION_ROLE (ETHExpirationCollector)]-+[ETHExpirationCollector]
 [BUILD_ROLE]-+[Parcel]
-[MINT_ROLE]-+[License]
-[OPERATOR_ROLE]-+[License]
+[MINT_ROLE]-+[ERC721License]
+[OPERATOR_ROLE]-+[ERC721License]
 ```

@@ -34,8 +34,21 @@ function makePayment(uint256 id) public payable
 Set the contribution rate for a license. Can only be done by current licensee or someone with `MODIFY_CONTRIBUTION_ROLE`
 
 ```
-function setContributionRate(uint256 id, uint256 newValue) public payable
+function setContributionRate(uint256 id, uint256 newContributionRate) public payable
 ```
+
+### Pause
+Pause and unpause for use in an emergency. Pauses payments and changes to contribution rate.
+
+```
+function pause() public
+```
+
+```
+function unpause() public
+```
+
+`PAUSE_ROLE` is required.
 
 ### isValid
 Conforms to [[Draft Proposal - License Validator]]. Checks expiration to determine if the current license is paid.
@@ -44,10 +57,18 @@ Conforms to [[Draft Proposal - License Validator]]. Checks expiration to determi
 function isValid(uint256 id) public view returns (bool)
 ```
 
+### Invalid Start Date
+Conforms to [[Draft Proposal - License Validator]]. Returns expiration for a parcel.
+
+```solidity
+function invalidStartDate(uint256 id) public view returns (uint256)
+```
+
 ## Roles
 | Name                       | Function Access       |
 | -------------------------- | --------------------- |
 | `MODIFY_CONTRIBUTION_ROLE` | `setContributionRate` |
+| `PAUSE_ROLE`               | `pause`, `unpause`    |
 
 ## Required Permissions
 | Contract                                    | Role                       | Reason                                                                                                     |
@@ -62,7 +83,9 @@ function isValid(uint256 id) public view returns (bool)
 	]
 	[<table> Functions |
 		makePayment() | public ||
-		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner ||
+		pause() 
+		unpause() | PAUSE_ROLE
 	]
 ]
 

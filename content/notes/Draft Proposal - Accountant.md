@@ -30,6 +30,7 @@ function setContributionRate(uint256 id, uint256 newRate) public
 
 `MODIFY_CONTRIBUTION_ROLE` is required.
 
+
 ### isValid
 Checks `validator` to determine if a license's account is valid and paid.
 

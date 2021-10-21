@@ -1,4 +1,4 @@
-# Draft Proposal - License
+# Draft Proposal - ERC721License
 #proposal
 
 Date :: 2021-10-01
@@ -22,7 +22,7 @@ function safeMint(address to, uint256 tokenId) public
 `MINT_ROLE` is required.
 
 ### Pause
-Pause and unpause for use in an emergency.
+Pause and unpause for use in an emergency. Pauses transfers.
 
 ```
 function pause() public
@@ -50,7 +50,7 @@ function isApprovedForAll(address owner, address operator) public view
 
 ## Diagram
 ```nomnoml
-[License | 
+[ERC721License | 
 	[<table> Functions |
 		safeMint() | MINT_ROLE || 
 		pause() 

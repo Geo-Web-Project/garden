@@ -15,51 +15,82 @@ None.
 Claim a new parcel with an initial contribution payment.
 
 ```
-function claim(address to, uint64 baseCoordinate, uint256[] calldata path, uint256 initialValue) public payable
+function claim(address to, uint64 baseCoordinate, uint256[] calldata path, uint256 initialContributionRate) public payable
 ```
+
+### Pause
+Pause and unpause for use in an emergency. Pauses all claims.
+
+```
+function pause() public
+```
+
+```
+function unpause() public
+```
+
+`PAUSE_ROLE` is required.
+
+## Roles
+| Name                       | Function Access       |
+| -------------------------- | --------------------- |
+| `PAUSE_ROLE`               | `pause`, `unpause`    |
 
 ## Required Permissions
 | Contract                                                            | Role                       | Reason                                                                                           |
 | ------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------ |
-| [[Draft Proposal - Parcel\|Parcel]]                                 | `BUILD_ROLE`               | Builds a new parcel with the given base coordinate and path, if the payment and value are valid. |
-| [[Draft Proposal - License\|License]]                               | `MINT_ROLE`                | Mints a license if parcel is successfully minted                                                 |
+| [[Draft Proposal - Parcel\|Parcel]]                                 | `BUILD_ROLE`               | Builds a new parcel with the given base coordinate and path, if the payment and contribution are valid. |
+| [[Draft Proposal - ERC721License\|License]]                               | `MINT_ROLE`                | Mints a license if parcel is successfully minted                                                 |
 | [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_CONTRIBUTION_ROLE` | Sets initial contribution rate when mint is successful                                           | 
 
 ## Diagram
 ```nomnoml
 [SimpleETHClaimer|
 	[<table> Functions |
-		claim() | public
+		claim() | public ||
+		pause() 
+		unpause() | PAUSE_ROLE
 	]
 ]
 
 [SimpleETHClaimer]-[<lollipop>BUILD_ROLE]
 [SimpleETHClaimer]-[<lollipop>MINT_ROLE]
-[SimpleETHClaimer]-[<lollipop>MODIFY_VALUE_ROLE]
+[SimpleETHClaimer]-[<lollipop>MODIFY_CONTRIBUTION_ROLE]
 
-[<table>Parcel | 
-	build() | BUILD_ROLE || 
-	destroy() | DESTROY_ROLE || 
-    append()
-	prepend()
-	trimStart()
-	trimEnd() | MODIFY_ROLE]
+[Parcel |
+	[Storage |
+		availabilityIndex |
+		landParcels
+	]
+	[<table> Functions |
+		build() | BUILD_ROLE || 
+		destroy() | DESTROY_ROLE || 
+    	append()
+		prepend()
+		trimStart()
+		trimEnd() | MODIFY_ROLE]
+]
 [ETHExpirationCollector | 
 	[Storage |
 		licenseExpirationTimestamps
 	]
 	[<table> Functions |
 		makePayment() | public ||
-		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner ||
+		pause() 
+		unpause() | PAUSE_ROLE
 	]
 ]
-[<table>License | 
-	safeMint() | MINT_ROLE || 
-	pause() 
-	unpause() | PAUSE_ROLE || 
-    isApprovalForAll() == true | OPERATOR_ROLE]
+[ERC721License | 
+	[<table> Functions |
+		safeMint() | MINT_ROLE || 
+		pause() 
+		unpause() | PAUSE_ROLE || 
+    	isApprovalForAll() == true | OPERATOR_ROLE
+	]
+]
 	
-[MODIFY_VALUE_ROLE]-+[ETHExpirationCollector]
+[MODIFY_CONTRIBUTION_ROLE]-+[ETHExpirationCollector]
 [BUILD_ROLE]-+[Parcel]
-[MINT_ROLE]-+[License]
+[MINT_ROLE]-+[ERC721License]
 ```

@@ -14,7 +14,7 @@ Author:: [[@codynhat]]
 	- Parcel needs more functionality (burn, prepend, append, trim)
 	- [ ] Write specs for existing features
 		- [ ] [[Draft Proposal - Parcel]]
-		- [ ] [[Draft Proposal - License]]
+		- [ ] [[Draft Proposal - ERC721License]]
 		- [ ] Claimer
 		- [ ] [[Draft Proposal - Accountant]]
 		- [ ] [[Draft Proposal - ETHExpirationCollector]]

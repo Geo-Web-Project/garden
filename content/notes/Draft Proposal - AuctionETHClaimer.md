@@ -34,11 +34,29 @@ Claim a new parcel with auction and initial contribution payments.
 function auctionClaim(address to, uint64 baseCoordinate, uint256[] calldata path, uint256 initialContributionRate) public payable
 ```
 
+### Pause
+Pause and unpause for use in an emergency. Pauses all claims.
+
+```
+function pause() public
+```
+
+```
+function unpause() public
+```
+
+`PAUSE_ROLE` is required.
+
+## Roles
+| Name                       | Function Access       |
+| -------------------------- | --------------------- |
+| `PAUSE_ROLE`               | `pause`, `unpause`    |
+
 ## Required Permissions
 | Contract                                                            | Role                | Reason                                                                                           |
 | ------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------ |
 | [[Draft Proposal - Parcel\|Parcel]]                                 | `BUILD_ROLE`        | Builds a new parcel with the given base coordinate and path, if the auction bid, payment, and value are valid. |
-| [[Draft Proposal - License\|License]]                               | `MINT_ROLE`         | Mints a license if parcel is successfully minted                                                 |
+| [[Draft Proposal - ERC721License\|License]]                               | `MINT_ROLE`         | Mints a license if parcel is successfully minted                                                 |
 | [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_CONTRIBUTION_ROLE` | Sets initial contribution rate when mint is successful                                                |
 
 ## Diagram
@@ -46,30 +64,50 @@ function auctionClaim(address to, uint64 baseCoordinate, uint256[] calldata path
 [AuctionETHClaimer|
 	[<table> Functions |
 		auctionClaim() | public ||
-		checkAuctionPrice() | public
+		checkAuctionPrice() | public ||
+		pause() 
+		unpause() | PAUSE_ROLE
 	]
 ]
 
 [AuctionETHClaimer]-[<lollipop>BUILD_ROLE]
 [AuctionETHClaimer]-[<lollipop>MINT_ROLE]
-[AuctionETHClaimer]-[<lollipop>MODIFY_VALUE_ROLE]
+[AuctionETHClaimer]-[<lollipop>MODIFY_CONTRIBUTION_ROLE]
 
-[<table>Parcel | 
-	build() | BUILD_ROLE || 
-	destroy() | DESTROY_ROLE || 
-    append()
-	prepend()
-	trimStart()
-	trimEnd() | MODIFY_ROLE]
-[<table>ETHExpirationCollector | 
-	setValue() | MODIFY_CONTRIBUTION_ROLE]
-[<table>License | 
-	safeMint() | MINT_ROLE || 
-	pause() 
-	unpause() | PAUSE_ROLE || 
-    isApprovalForAll() == true | OPERATOR_ROLE]
-	
+[Parcel |
+	[Storage |
+		availabilityIndex |
+		landParcels
+	]
+	[<table> Functions |
+		build() | BUILD_ROLE || 
+		destroy() | DESTROY_ROLE || 
+    	append()
+		prepend()
+		trimStart()
+		trimEnd() | MODIFY_ROLE]
+]
+[ETHExpirationCollector | 
+	[Storage |
+		licenseExpirationTimestamps
+	]
+	[<table> Functions |
+		makePayment() | public ||
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner ||
+		pause() 
+		unpause() | PAUSE_ROLE
+	]
+]
+[ERC721License | 
+	[<table> Functions |
+		safeMint() | MINT_ROLE || 
+		pause() 
+		unpause() | PAUSE_ROLE || 
+    	isApprovalForAll() == true | OPERATOR_ROLE
+	]
+]
+
 [MODIFY_CONTRIBUTION_ROLE]-+[ETHExpirationCollector]
 [BUILD_ROLE]-+[Parcel]
-[MINT_ROLE]-+[License]
+[MINT_ROLE]-+[ERC721License]
 ```

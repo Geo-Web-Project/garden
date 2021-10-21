@@ -13,7 +13,7 @@ Author:: [[@codynhat]]
 - Rethinking [[Extending the Geo Web|extensibility]]
 	- [x] Write specs for existing features
 		- [x] [[Draft Proposal - Parcel]]
-		- [x] [[Draft Proposal - License]]
+		- [x] [[Draft Proposal - ERC721License]]
 		- [x] [[Draft Proposal - Accountant]]
 		- [x] [[Draft Proposal - ETHExpirationCollector]]
 		- [x] [[Draft Proposal - License Validator]]
