@@ -7,6 +7,11 @@ Author :: [[@codynhat]]
 ## Summary
 A smart contract that enables simple, first-come-first-serve claims on land parcels.
 
+## Parameters
+| Name                  | Type      | Description                             |
+| --------------------- | --------- | --------------------------------------- |
+| `minClaimExpiration`       | `uint256` | Minimum initial expiration for a license        |
+
 ## Storage
 None.
 

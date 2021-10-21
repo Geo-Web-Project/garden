@@ -10,3 +10,5 @@ Author:: [[@codynhat]]
 
 ## This Week
 - [ ] Implement new proposals
+	- [x] [[Draft Proposal - Accountant]]
+	- [x] [[Draft Proposal - ETHExpirationCollector]]
