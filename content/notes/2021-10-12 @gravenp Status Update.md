@@ -11,4 +11,4 @@ Author:: [[@gravenp]]
 ## This Week
 - [x] Integrate business requirements of [[Fair Launch Auction Requirements]] with technical [[Draft Proposal - AuctionETHClaimer]]
 - [x] Research Superfluid and impact of streaming payments on market assumptions - [[Streaming Payments]]
-- [ ] Refocus and define Cadastre work for Filecoin grant requirements
+- [x] Refocus and define Cadastre work for Filecoin grant requirements
