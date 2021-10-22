@@ -6,7 +6,9 @@ Author:: [[@codynhat]]
 ---
 
 ## Last Week
-- [[2021-10-12 @gravenp Status Update]]
+- [[2021-10-12 @codynhat Status Update]]
 
 ## This Week
 - [ ] Implement new proposals
+	- [x] [[Draft Proposal - SimpleETHClaimer]]
+	- [x] [[Draft Proposal - License Validator]]
