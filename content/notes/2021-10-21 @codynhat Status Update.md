@@ -12,3 +12,4 @@ Author:: [[@codynhat]]
 - [ ] Implement new proposals
 	- [x] [[Draft Proposal - SimpleETHClaimer]]
 	- [x] [[Draft Proposal - License Validator]]
+	- [x] [[Draft Proposal - ERC721License]]

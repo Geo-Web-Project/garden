@@ -51,6 +51,7 @@ Install the [Kroki](https://github.com/gregzuro/obsidian-kroki) plugin
 [ETHPurchaser|
 	[<table> Functions |
 		purchase() | public ||
+		calculatePurchasePrice() | public ||
 		pause() 
 		unpause() | PAUSE_ROLE
 	]
