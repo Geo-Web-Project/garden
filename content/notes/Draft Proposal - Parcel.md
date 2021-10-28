@@ -15,11 +15,8 @@ A smart contract that stores what area makes up a parcel and defines the rules f
 
 ## Functions (How)
 ### Build
-Build a new parcel. All coordinates along the path must be available. All coordinates are marked unavailable after creation. An optional parcel ID is given, or a new one is created if omitted.
+Build a new parcel. All coordinates along the path must be available. All coordinates are marked unavailable after creation.
 
-```
-function build(uint64 baseCoordinate, uint256[] calldata path, uint256 id) public
-```
 ```
 function build(uint64 baseCoordinate, uint256[] calldata path) returns (uint256 newParcelId) public
 ```

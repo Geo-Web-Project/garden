@@ -24,7 +24,7 @@ function purchase(uint256 id, address to, uint256 maxPurchasePrice, uint256 newC
 ```
 
 ### Calculate Purchase Price
-Calculate the current purchase price of a parcel. Uses `invalidStartDate` of [[Draft Proposal - License Validator|validator]] as the start of a dutch auction that reaches a price of 0 after `dutchAuctionLengthInSeconds`.
+Calculate the current purchase price of a parcel. Uses `invalidStartDate` of [[Draft Proposal - License Validator|validator]] as the start of a dutch auction that reaches a price of 0 after `dutchAuctionLengthInSeconds`. Also includes any outstanding fee balance.
 
 ```
 function calculatePurchasePrice(uint256 id) public view returns(uint256)
