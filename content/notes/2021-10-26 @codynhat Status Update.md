@@ -9,6 +9,6 @@ Author:: [[@codynhat]]
 - [[2021-10-21 @codynhat Status Update]]
 
 ## This Week
-- [ ] Implement new proposals
+- [x] Implement new proposals
 	- [x] [[Draft Proposal - ETHPurchaser]]
-	- [ ] [[Draft Proposal - Parcel]]
+	- [x] [[Draft Proposal - Parcel]]

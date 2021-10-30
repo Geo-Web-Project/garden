@@ -8,11 +8,7 @@ Install the [Kroki](https://github.com/gregzuro/obsidian-kroki) plugin
 	]
 	[<table> Functions |
 		build() | BUILD_ROLE || 
-		destroy() | DESTROY_ROLE || 
-    	append()
-		prepend()
-		trimStart()
-		trimEnd() | MODIFY_ROLE]
+		destroy() | DESTROY_ROLE]
 ]
 [ETHExpirationCollector | 
 	[Storage |
