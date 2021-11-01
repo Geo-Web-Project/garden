@@ -9,6 +9,6 @@ Author:: [[@gravenp]]
 - [[2021-10-21 @gravenp Status Update]]
 
 ## This Week
-- [ ] Spin up a Geo Web Discourse forum
-- [ ] Publish a bounty submission process
-- [ ] Website copy refresh
+- [x] Spin up a Geo Web Discourse forum - http://forum.geoweb.network, SourceCred configured and basic admin complete. Need to populate the forum with more content over time.
+- [x] Publish a bounty submission process - [[Bounty Process]]
+- [x] Website copy refresh (small changes to terminology made in copy and diagrams)
