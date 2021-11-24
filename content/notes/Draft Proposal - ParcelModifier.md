@@ -158,7 +158,9 @@ function unpause() public
 | [[Draft Proposal - ERC721License\|License]]                         | `BURN_ROLE`                | Burns a license when parcel is `DESTROYED`                |
 | [[Draft Proposal - ERC721License\|License]]                         | `MINT_ROLE`                | Mints a license when parcel is `CREATED`                  |
 | [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_FUNDS_ROLE`        | Modifies funds on `merge`, `split`, and `splitAndDestroy` |
-| [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_CONTRIBUTION_ROLE` | Modifies contribution on `modify`                         | 
+| [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_CONTRIBUTION_ROLE` | Modifies contribution on `modify`                         |
+| [[Draft Proposal - Parcel\|Parcel]]                                 | `BUILD_ROLE`               | Builds a new parcel on `CREATED` and `MODIFIED`           |
+| [[Draft Proposal - Parcel\|Parcel]]                                 | `DESTROY_ROLE`             | Destroys a parcel on `DESTROYED` and `MODIFIED`           |
 
 ## Diagram
 ```nomnoml
@@ -177,6 +179,8 @@ function unpause() public
 [ParcelModifier]-[<lollipop>MINT_ROLE]
 [ParcelModifier]-[<lollipop>MODIFY_FUNDS_ROLE]
 [ParcelModifier]-[<lollipop>MODIFY_CONTRIBUTION_ROLE]
+[ParcelModifier]-[<lollipop>BUILD_ROLE]
+[ParcelModifier]-[<lollipop>DESTROY_ROLE]
 
 [ETHExpirationCollector | 
 	[Storage |
@@ -200,9 +204,20 @@ function unpause() public
     	isApprovalForAll() == true | OPERATOR_ROLE
 	]
 ]
+[Parcel |
+	[Storage |
+		availabilityIndex |
+		landParcels
+	]
+	[<table> Functions |
+		build() | BUILD_ROLE || 
+		destroy() | DESTROY_ROLE]
+]
 	
 [MODIFY_CONTRIBUTION_ROLE]-+[ETHExpirationCollector]
 [MODIFY_FUNDS_ROLE]-+[ETHExpirationCollector]
 [MINT_ROLE]-+[ERC721License]
 [BURN_ROLE]-+[ERC721License]
+[BUILD_ROLE]-+[Parcel]
+[DESTROY_ROLE]-+[Parcel]
 ```

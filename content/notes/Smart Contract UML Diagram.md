@@ -55,6 +55,16 @@ Install the [Kroki](https://github.com/gregzuro/obsidian-kroki) plugin
 		unpause() | PAUSE_ROLE
 	]
 ]
+[ParcelModifier|
+	[<table> Functions |
+		modify() | owner OR isApprovedForAll ||
+		merge() | owner OR isApprovedForAll ||
+		split() | owner OR isApprovedForAll ||
+		splitAndDestroy() | owner OR isApprovedForAll ||
+		pause() 
+		unpause() | PAUSE_ROLE
+	]
+]
 
 [ETHPurchaser]-[<lollipop>OPERATOR_ROLE]
 [ETHPurchaser]-[<lollipop>MODIFY_CONTRIBUTION_ROLE (ETHExpirationCollector)]
@@ -62,10 +72,20 @@ Install the [Kroki](https://github.com/gregzuro/obsidian-kroki) plugin
 [SimpleETHClaimer]-[<lollipop>MINT_ROLE]
 [SimpleETHClaimer]-[<lollipop>MODIFY_CONTRIBUTION_ROLE (ETHExpirationCollector)]
 
+[ParcelModifier]-[<lollipop> BURN_ROLE]
+[ParcelModifier]-[<lollipop> DESTROY_ROLE]
+[ParcelModifier]-[<lollipop> MODIFY_FUNDS_ROLE]
+[ParcelModifier]-[BUILD_ROLE]
+[ParcelModifier]-[MINT_ROLE]
+[ParcelModifier]-[MODIFY_CONTRIBUTION_ROLE (ETHExpirationCollector)]
+
 [<lollipop>MODIFY_CONTRIBUTION_ROLE (Accountant)]-+[Accountant]
 [ETHExpirationCollector]-[MODIFY_CONTRIBUTION_ROLE (Accountant)]
 [MODIFY_CONTRIBUTION_ROLE (ETHExpirationCollector)]-+[ETHExpirationCollector]
+[MODIFY_FUNDS_ROLE]-+[ETHExpirationCollector]
 [BUILD_ROLE]-+[Parcel]
+[DESTROY_ROLE]-+[Parcel]
 [MINT_ROLE]-+[ERC721License]
+[BURN_ROLE]-+[ERC721License]
 [OPERATOR_ROLE]-+[ERC721License]
 ```
