@@ -16,7 +16,9 @@ Install the [Kroki](https://github.com/gregzuro/obsidian-kroki) plugin
 	]
 	[<table> Functions |
 		makePayment() | public ||
-		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner ||
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE OR owner OR isApprovedForAll ||
+		moveFunds() | MODIFY_FUNDS_ROLE ||
+		migrateFunds() | MODIFY_FUNDS_ROLE ||
 		pause() 
 		unpause() | PAUSE_ROLE
 	]
@@ -24,9 +26,10 @@ Install the [Kroki](https://github.com/gregzuro/obsidian-kroki) plugin
 [ERC721License | 
 	[<table> Functions |
 		safeMint() | MINT_ROLE || 
-    	isApprovalForAll() == true | OPERATOR_ROLE ||
+		burn() | BURN_ROLE ||
 		pause() 
-		unpause() | PAUSE_ROLE
+		unpause() | PAUSE_ROLE || 
+    	isApprovalForAll() == true | OPERATOR_ROLE
 	]
 ]
 [Accountant | 

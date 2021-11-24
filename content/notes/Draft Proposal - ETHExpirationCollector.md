@@ -37,6 +37,32 @@ Set the contribution rate for a license. Can only be done by current licensee or
 function setContributionRate(uint256 id, uint256 newContributionRate) public payable
 ```
 
+### Migrate Funds
+Migrate all funds from one license to another and clear the from license. Can only be done by someone with `MODIFY_FUNDS_ROLE`
+
+```
+function migrateFunds(
+	uint256 fromId, 
+	uint256 toId, 
+	uint256 toContributionRate
+) public payable
+```
+
+### Move Funds
+Move funds from one license to another. Can only be done by someone with `MODIFY_FUNDS_ROLE`
+
+```
+function moveFunds(
+	uint256 fromId, 
+	uint256 fromContributionRate, 
+	uint256 fromAdditionalPayment, 
+	uint256 toId, 
+	uint256 toContributionRate, 
+	uint256 toAdditionalPayment, 
+	uint256 amount
+) public payable
+```
+
 ### Pause
 Pause and unpause for use in an emergency. Pauses payments and changes to contribution rate.
 
@@ -69,6 +95,7 @@ function invalidStartDate(uint256 id) public view returns (uint256)
 | -------------------------- | --------------------- |
 | `MODIFY_CONTRIBUTION_ROLE` | `setContributionRate` |
 | `PAUSE_ROLE`               | `pause`, `unpause`    |
+| `MODIFY_FUNDS_ROLE` | `mergeFunds`, `moveFunds` |                           |                       |
 
 ## Required Permissions
 | Contract                                    | Role                       | Reason                                                                                                     |
@@ -83,7 +110,9 @@ function invalidStartDate(uint256 id) public view returns (uint256)
 	]
 	[<table> Functions |
 		makePayment() | public ||
-		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner ||
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE OR owner OR isApprovedForAll ||
+		moveFunds() | MODIFY_FUNDS_ROLE ||
+		migrateFunds() | MODIFY_FUNDS_ROLE ||
 		pause() 
 		unpause() | PAUSE_ROLE
 	]

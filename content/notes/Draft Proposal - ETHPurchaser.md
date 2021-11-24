@@ -74,7 +74,9 @@ function unpause() public
 	]
 	[<table> Functions |
 		makePayment() | public ||
-		setContributionRate() | MODIFY_CONTRIBUTION_ROLE or owner ||
+		setContributionRate() | MODIFY_CONTRIBUTION_ROLE OR owner OR isApprovedForAll ||
+		moveFunds() | MODIFY_FUNDS_ROLE ||
+		migrateFunds() | MODIFY_FUNDS_ROLE ||
 		pause() 
 		unpause() | PAUSE_ROLE
 	]
@@ -82,6 +84,7 @@ function unpause() public
 [ERC721License | 
 	[<table> Functions |
 		safeMint() | MINT_ROLE || 
+		burn() | BURN_ROLE ||
 		pause() 
 		unpause() | PAUSE_ROLE || 
     	isApprovalForAll() == true | OPERATOR_ROLE

@@ -21,6 +21,14 @@ function safeMint(address to, uint256 tokenId) public
 
 `MINT_ROLE` is required.
 
+### Burn
+Burn a  license.
+```
+function burn(uint256 tokenId) public
+```
+
+`_ROLE` is required.
+
 ### Pause
 Pause and unpause for use in an emergency. Pauses transfers.
 
@@ -37,9 +45,10 @@ function unpause() public
 ## Roles
 | Name            | Function Access                          |
 | --------------- | ---------------------------------------- |
+| `BURN_ROLE`     | `burn`                                   |
 | `MINT_ROLE`     | `safeMint`                               |
 | `PAUSE_ROLE`    | `pause`, `unpause`                       |
-| `OPERATOR_ROLE` | `isApprovalForAll` always returns `true` |                |                                          |
+| `OPERATOR_ROLE` | `isApprovalForAll` always returns `true` |
 
 ### Operator
 The [ERC-721][1] function `isApprovedForAll` is overridden to always return `true` for an operator with the `OPERATOR_ROLE`. This allows for partial common ownership of licenses. 
@@ -53,6 +62,7 @@ function isApprovedForAll(address owner, address operator) public view
 [ERC721License | 
 	[<table> Functions |
 		safeMint() | MINT_ROLE || 
+		burn() | BURN_ROLE ||
 		pause() 
 		unpause() | PAUSE_ROLE || 
     	isApprovalForAll() == true | OPERATOR_ROLE
