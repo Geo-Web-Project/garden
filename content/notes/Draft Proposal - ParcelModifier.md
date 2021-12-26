@@ -34,24 +34,19 @@ Modify an existing parcel.
 
 - Base coordinate stays the same
 - Can redraw a path that includes any unclaimed coordinates or coordinates currently part of this parcel
-- Contribution rate can be modified
-- Additional payment can be made.
 - Must be the current parcel owner or approved by owner
 
 ```
 function modify(
+	address msgSender,
 	uint256 toParcelId, 
 	uint256[] calldata newPath
-) public payable
-
-function modify(
-	uint256 toParcelId, 
-	uint256[] calldata newPath, 
-	uint256 newContributionRate
-) public payable
+) public
 ```
 
 `toParcelId` is `MODIFIED`.
+
+`MODIFY_ROLE` is required.
 
 ### Merge
 Merge a parcel into another. 
@@ -59,26 +54,20 @@ Merge a parcel into another.
 - The `TO` parcel base coordinate stays the same
 - The new `TO` path can include any unclaimed coordinates or coordinates currently part of either parcel
 - Must be the current owner of both parcels or approved by owner
-- Contribution rate of `TO` parcel can be modified
-- Additional payment can be made on `TO` parcel
 
 ```
 function merge(
+	address msgSender,
 	uint256 fromParcelId, 
 	uint256 toParcelId, 
 	uint256[] calldata toPath 
-) public payable
-
-function merge(
-	uint256 fromParcelId, 
-	uint256 toParcelId, 
-	uint256[] calldata toPath, 
-	uint256 toContributionRate
-) public payable
+) public
 ```
 
 `fromParcelId` is `DESTROYED`.
 `toParcelId` is `MODIFIED`.
+
+`MODIFY_ROLE` is required.
 
 ### Split
 Split a parcel by creating a new parcel from coordinates of an existing parcel. 
@@ -86,53 +75,40 @@ Split a parcel by creating a new parcel from coordinates of an existing parcel.
 - The new `FROM` and `TO` paths can include any unclaimed coordinates or coordinates currently part of `FROM`
 - Must be the current owner of the parcel or approved by owner
 - Contribution rate of `TO` parcel must be given
-- Amount of funds to reallocate to `TO` must be given
-- Contribution rate of `FROM` parcel can be modified
-- Additional payments can be made on `FROM` or `TO`
 
 ```
 function split(
+	address msgSender,
 	uint256 fromParcelId, 
 	uint256[] calldata fromPath, 
 	uint256 toBaseCoordinate,
 	uint256[] calldata toPath,
-	uint256 toContributionRate,
-	uint256 reallocateFundsTo
-) public payable
-
-function split(
-	uint256 fromParcelId, 
-	uint256[] calldata fromPath, 
-	uint256 toBaseCoordinate,
-	uint256[] calldata toPath,
-	uint256 toContributionRate,
-	uint256 reallocateFundsTo,
-	uint256 fromContributionRate,
-	uint256 fromAdditionalPayment,
-	uint256 toAdditionalPayment
-) public payable
+	uint256 toContributionRate
+) public
 ```
 
 `fromParcelId` is `MODIFIED`.
 `TO` parcel is `CREATED`.
+
+`MODIFY_ROLE` is required.
 
 ### Split and Destroy
 Split a parcel by creating a new parcel from coordinates of an existing parcel, but destroy the `FROM` parcel afterwards.
 - The new `TO` path can include any unclaimed coordinates or coordinates currently part of `FROM`
 - Must be the current owner of the parcel or approved by owner
 - Contribution rate of `TO` parcel must be given
-- All funds are reallocated to `TO`
-- Additional payments can be made on `TO`
 
 ```
 function splitAndDestroy(
+	address msgSender,
 	uint256 fromParcelId, 
 	uint256 toBaseCoordinate,
 	uint256[] calldata toPath,
-	uint256 toContributionRate,
-	uint256 toAdditionalPayment
-) public payable
+	uint256 toContributionRate
+) public
 ```
+
+`MODIFY_ROLE` is required.
 
 ### Pause
 Pause and unpause for use in an emergency. Pauses all modifications.
@@ -148,19 +124,19 @@ function unpause() public
 `PAUSE_ROLE` is required.
 
 ## Roles
-| Name                       | Function Access       |
-| -------------------------- | --------------------- |
-| `PAUSE_ROLE`               | `pause`, `unpause`    |
+| Name          | Function Access                               |
+| ------------- | --------------------------------------------- |
+| `PAUSE_ROLE`  | `pause`, `unpause`                            |
+| `MODIFY_ROLE` | `modify`, `merge`, `split`, `splitAndDestroy` |
 
 ## Required Permissions
-| Contract                                                            | Role                       | Reason                                                    |
-| ------------------------------------------------------------------- | -------------------------- | --------------------------------------------------------- |
-| [[Draft Proposal - ERC721License\|License]]                         | `BURN_ROLE`                | Burns a license when parcel is `DESTROYED`                |
-| [[Draft Proposal - ERC721License\|License]]                         | `MINT_ROLE`                | Mints a license when parcel is `CREATED`                  |
-| [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_FUNDS_ROLE`        | Modifies funds on `merge`, `split`, and `splitAndDestroy` |
-| [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_CONTRIBUTION_ROLE` | Modifies contribution on `modify`                         |
-| [[Draft Proposal - Parcel\|Parcel]]                                 | `BUILD_ROLE`               | Builds a new parcel on `CREATED` and `MODIFIED`           |
-| [[Draft Proposal - Parcel\|Parcel]]                                 | `DESTROY_ROLE`             | Destroys a parcel on `DESTROYED` and `MODIFIED`           |
+| Contract                                                  | Role                       | Reason                                          |
+| --------------------------------------------------------- | -------------------------- | ----------------------------------------------- |
+| [[Draft Proposal - ERC721License\|License]]               | `BURN_ROLE`                | Burns a license when parcel is `DESTROYED`      |
+| [[Draft Proposal - ERC721License\|License]]               | `MINT_ROLE`                | Mints a license when parcel is `CREATED`        |
+| [[Draft Proposal - CollectorSuperApp\|CollectorSuperApp]] | `MODIFY_CONTRIBUTION_ROLE` | Modifies contribution on `modify`               |
+| [[Draft Proposal - Parcel\|Parcel]]                       | `BUILD_ROLE`               | Builds a new parcel on `CREATED` and `MODIFIED` |
+| [[Draft Proposal - Parcel\|Parcel]]                       | `DESTROY_ROLE`             | Destroys a parcel on `DESTROYED` and `MODIFIED` |
 
 ## Diagram
 ```nomnoml

@@ -12,7 +12,8 @@ A smart contract that stores accounting information for an always-for-sale licen
 | ------------------------- | ------------------- | ------------------------------------------------------------------------------------------ |
 | `perSecondFeeNumerator`   | `uint256`           | Numerator of contribution fee                                                              |
 | `perSecondFeeDenominator` | `uint256`           | Denominator of contribution fee                                                            |
-| `validator`               | `ILicenseValidator` | Where to find if a license's account is still valid [[Draft Proposal - License Validator]] | 
+| `validator`               | `ILicenseValidator` | Where to find if a license's account is still valid [[Draft Proposal - License Validator]] |
+| `minContributionRate`     | `uint256`           | Minimum contribution rate for a license                                                    |
 
 ## Storage
 | Name                | Type                          | Description                                   |

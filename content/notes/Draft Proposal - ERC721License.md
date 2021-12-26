@@ -22,12 +22,12 @@ function safeMint(address to, uint256 tokenId) public
 `MINT_ROLE` is required.
 
 ### Burn
-Burn a  license.
+Burn a license.
 ```
 function burn(uint256 tokenId) public
 ```
 
-`_ROLE` is required.
+`BURN_ROLE` is required.
 
 ### Pause
 Pause and unpause for use in an emergency. Pauses transfers.
