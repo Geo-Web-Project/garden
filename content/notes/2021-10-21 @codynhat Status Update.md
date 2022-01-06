@@ -10,7 +10,7 @@ Author:: [[@codynhat]]
 
 ## This Week
 - [ ] Implement new proposals
-	- [x] [[Draft Proposal - SimpleFlowClaimer]]
+	- [x] [[Draft Proposal - SimpleETHxClaimer]]
 	- [x] [[Draft Proposal - License Validator]]
 	- [x] [[Draft Proposal - ERC721License]]
 	- [ ] [[Draft Proposal - ETHPurchaser]]

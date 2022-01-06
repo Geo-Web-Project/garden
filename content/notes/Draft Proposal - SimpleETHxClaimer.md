@@ -1,4 +1,4 @@
-# Draft Proposal - SimpleFlowClaimer
+# Draft Proposal - SimpleETHxClaimer
 #proposal
 
 Date :: 2021-10-07
