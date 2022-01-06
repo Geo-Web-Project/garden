@@ -8,14 +8,29 @@ Author :: [[@codynhat]]
 A smart contract that enables the sale and transfer of always-for-sale licenses in ETHx (Superfluid).
 
 ## Parameters
-| Name                          | Type                      | Description                                            |
-| ----------------------------- | ------------------------- | ------------------------------------------------------ |
-| `dutchAuctionLengthInSeconds` | `uint256`                 | Length of Dutch auction upon a parcel becoming invalid |
+| Name                          | Type      | Description                                            |
+| ----------------------------- | --------- | ------------------------------------------------------ |
+| `dutchAuctionLengthInSeconds` | `uint256` | Length of Dutch auction upon a parcel becoming invalid |
+| `penaltyNumerator`            | `uint256` | Numerator of penalty needed on difference of self-assessed values                                                       |
+| `penaltyDenominator`          | `uint256` | Denominator of penalty needed on difference of self-assessed values                                                      |
 
 ## Storage
-| Name                          | Type                      | Description                                            |
-| ----------------------------- | ------------------------- | ------------------------------------------------------ |
-| `outstandingBid`              | `mapping(uint256 => Bid)` | Stores the highest outstanding bid for a license       |
+| Name              | Type                      | Description                                       |
+| ----------------- | ------------------------- | ------------------------------------------------- |
+| `outstandingBid`  | `mapping(uint256 => Bid)` | Stores the highest outstanding bid for a license  |
+| `currentOwnerBid` | `mapping(uint256 => Bid)` | Stores the bid for the current owner of a license |
+
+## Models
+```solidity
+struct Bid {
+	uint256 timestamp;
+	address bidder;
+	uint256 contributionRate;
+	uint256 perSecondFeeNumerator;
+	uint256 perSecondFeeDenominator;
+	uint256 depositAmount;
+}
+```
 
 ## Functions
 ### Place Bid
@@ -33,7 +48,7 @@ function placeBid(
 	- Must approve deposit amount of ETHx
 - Actions
 	- `lockContributionRate` on [[Draft Proposal - CollectorSuperApp|CollectorSuperApp]]
-	- Transfer deposit to app
+	- Transfer deposit to ETHxPurchaser
 
 ### Accept Bid
 Licensee can accept a bid placed on their license.
@@ -52,7 +67,7 @@ function acceptBid(
 	- `unlockContributionRate(bidder)` on [[Draft Proposal - CollectorSuperApp|CollectorSuperApp]]
 	- `increaseContributionRate(bidder, newContributionRate)
 	- `setContributionRate` on [[Draft Proposal - Accountant|Accountant]]
-	- Transfer deposit to sender
+	- `withdrawableDeposits[sender] += deposit`
 	- Transfer license to bidder
 
 ### Reject Bid
@@ -99,9 +114,18 @@ function calculateForSalePrice(
 ) returns (uint256)
 ```
 
-- License is valid -> Self-assessed value of current owner
-- License is expired -> Dutch auction price declining to 0
+- `totalContributionRate > 0`-> Self-assessed value of current owner
+- `totalContributionRate` is 0 -> Dutch auction price declining to 0
 - License is `0x0` -> Fair launch auction price OR 0
+
+### Calculate Penalty
+Calculate the penalty needed for the current bid to be rejected.
+
+```solidity
+function calculatePenalty(
+	uint256 licenseId
+) returns (uint256)
+```
 
 ### Pause
 Pause and unpause for use in an emergency. Pauses all purchases.
