@@ -44,11 +44,31 @@ function placeBid(
 
 - Requirements
 	- `msg.sender` is not license owner
+	- `totalContributionRate > 0` (not in Dutch auction)
 	- No bid is outstanding for license `outstandingBid[licenseId]`
 	- Must approve deposit amount of ETHx
 - Actions
 	- `lockContributionRate` on [[Draft Proposal - CollectorSuperApp|CollectorSuperApp]]
 	- Transfer deposit to ETHxPurchaser
+
+### Place Dutch Auction Bid
+User can place and immediately claim a bid for a license that is in Dutch auction.
+```solidity
+function placeDutchAuctionBid(
+	uint256 licenseId, 
+	uint256 contributionRate
+)
+```
+
+- Requirements
+	- `msg.sender` is not license owner
+	- `totalContributionRate == 0` (in Dutch auction)
+	- Must approve deposit amount of ETHx
+- Actions
+	- `increaseContributionRate(bidder, newContributionRate)
+	- `setContributionRate` on [[Draft Proposal - Accountant|Accountant]]
+	- `withdrawableDeposits[sender] += deposit`
+	- Transfer license to bidder
 
 ### Accept Bid
 Licensee can accept a bid placed on their license.
@@ -115,7 +135,7 @@ function calculateForSalePrice(
 ```
 
 - `totalContributionRate > 0`-> Self-assessed value of current owner
-- `totalContributionRate` is 0 -> Dutch auction price declining to 0
+- `totalContributionRate == 0` -> Dutch auction price declining to 0
 - License is `0x0` -> Fair launch auction price OR 0
 
 ### Calculate Penalty

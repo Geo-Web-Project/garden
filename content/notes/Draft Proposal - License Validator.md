@@ -11,6 +11,5 @@ A smart contract interface that defines how a license is considered valid.
 ```solidity
 interface ILicenseValidator {
 	function isValid(uint256 id) public view returns (bool);
-	function invalidStartDate(uint256 id) public view returns (uint256);
 }
 ```

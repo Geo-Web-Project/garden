@@ -39,13 +39,6 @@ Checks `validator` to determine if a license's account is valid and paid.
 function isValid(uint256 id) public view returns (bool)
 ```
 
-### Invalid Start Date
-Checks `validator` to determine when a parcel will begin to be invalid.
-
-```solidity
-function invalidStartDate(uint256 id) public view returns (uint256)
-```
-
 ## Roles
 | Name                       | Function Access       |
 | -------------------------- | --------------------- |

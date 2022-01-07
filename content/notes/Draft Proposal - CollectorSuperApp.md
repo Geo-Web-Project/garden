@@ -61,7 +61,7 @@ If a Constant Flow Agreement is updated or created, the app opens a flow in the 
 
 This pattern allows a user to open a flow ahead of time, but only "start" the flow when they actually have a winning bid.
 
-**TODO** If the flow is changed to be `< totalContributionRate[user]`, it should either revert or give up ownership of all licenses and set `totalContributionRate` to 0.
+If the flow is changed to be `< totalContributionRate[user]`, the transaction should revert.
 
 #### afterAgreementTerminated
 ```solidity
