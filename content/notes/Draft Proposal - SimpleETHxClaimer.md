@@ -56,5 +56,5 @@ function unpause() public
 | --------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------- |
 | [[Draft Proposal - Parcel\|Parcel]]                       | `BUILD_ROLE`               | Builds a new parcel with the given base coordinate and path, if the payment and contribution are valid. |
 | [[Draft Proposal - ERC721License\|License]]               | `MINT_ROLE`                | Mints a license if parcel is successfully minted                                                        |
-| [[Draft Proposal - CollectorSuperApp\|CollectorSuperApp]] | `MODIFY_CONTRIBUTION_ROLE` | Increases contribution rate when mint is successful                                                     |
+| [[Draft Proposal - AuctionSuperApp\|CollectorSuperApp]] | `MODIFY_CONTRIBUTION_ROLE` | Increases contribution rate when mint is successful                                                     |
 | [[Draft Proposal - Accountant\|Accountant]]               | `MODIFY_CONTRIBUTION_ROLE` | Will modify license contribution rate on behalf of users                                                |

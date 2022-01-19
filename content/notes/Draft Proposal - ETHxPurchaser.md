@@ -48,7 +48,7 @@ function placeBid(
 	- No bid is outstanding for license `outstandingBid[licenseId]`
 	- Must approve deposit amount of ETHx
 - Actions
-	- `lockContributionRate` on [[Draft Proposal - CollectorSuperApp|CollectorSuperApp]]
+	- `lockContributionRate` on [[Draft Proposal - AuctionSuperApp|CollectorSuperApp]]
 	- Transfer deposit to ETHxPurchaser
 
 ### Place Dutch Auction Bid
@@ -84,7 +84,7 @@ function acceptBid(
 	- Bid is outstanding for license `outstandingBid[licenseId]`
 - Actions
 	- `decreaseContributionRate(sender, oldContributionRate)
-	- `unlockContributionRate(bidder)` on [[Draft Proposal - CollectorSuperApp|CollectorSuperApp]]
+	- `unlockContributionRate(bidder)` on [[Draft Proposal - AuctionSuperApp|CollectorSuperApp]]
 	- `increaseContributionRate(bidder, newContributionRate)
 	- `setContributionRate` on [[Draft Proposal - Accountant|Accountant]]
 	- `withdrawableDeposits[sender] += deposit`
@@ -105,7 +105,7 @@ function rejectBid(
 - Actions
 	- `increaseContributionRate(owner, bidContributionRate - existingContributionRate)
 	- `setContributionRate` on [[Draft Proposal - Accountant|Accountant]]
-	- `unlockContributionRate(bidder)` on [[Draft Proposal - CollectorSuperApp|CollectorSuperApp]]
+	- `unlockContributionRate(bidder)` on [[Draft Proposal - AuctionSuperApp|CollectorSuperApp]]
 	- `withdrawableDeposits[bidder] += deposit`
 	- `outstandingBid[licenseId]` is deleted
 	- Penalty is collected from owner
@@ -160,6 +160,13 @@ function unpause() public
 
 `PAUSE_ROLE` is required.
 
+### isValid
+Conforms to [[Draft Proposal - License Validator]]. Checks if current license owner is `0x0` or not.
+
+```solidity
+function isValid(uint256 id) public view returns (bool)
+```
+
 ## Roles
 | Name                       | Function Access       |
 | -------------------------- | --------------------- |
@@ -169,7 +176,7 @@ function unpause() public
 | Contract                                                  | Role                       | Reason                                                   |
 | --------------------------------------------------------- | -------------------------- | -------------------------------------------------------- |
 | [[Draft Proposal - ERC721License\|License]]               | `OPERATOR_ROLE`            | Transfers the license to the new owner                   |
-| [[Draft Proposal - CollectorSuperApp\|CollectorSuperApp]] | `MODIFY_CONTRIBUTION_ROLE` | Modifies contribution on `modify`                        |
+| [[Draft Proposal - AuctionSuperApp\|CollectorSuperApp]] | `MODIFY_CONTRIBUTION_ROLE` | Modifies contribution on `modify`                        |
 | [[Draft Proposal - Accountant\|Accountant]]               | `MODIFY_CONTRIBUTION_ROLE` | Will modify license contribution rate on behalf of users |
 
 ## Diagram

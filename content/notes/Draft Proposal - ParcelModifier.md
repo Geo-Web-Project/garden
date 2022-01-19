@@ -134,7 +134,7 @@ function unpause() public
 | --------------------------------------------------------- | -------------------------- | ----------------------------------------------- |
 | [[Draft Proposal - ERC721License\|License]]               | `BURN_ROLE`                | Burns a license when parcel is `DESTROYED`      |
 | [[Draft Proposal - ERC721License\|License]]               | `MINT_ROLE`                | Mints a license when parcel is `CREATED`        |
-| [[Draft Proposal - CollectorSuperApp\|CollectorSuperApp]] | `MODIFY_CONTRIBUTION_ROLE` | Modifies contribution on `modify`               |
+| [[Draft Proposal - AuctionSuperApp\|CollectorSuperApp]] | `MODIFY_CONTRIBUTION_ROLE` | Modifies contribution on `modify`               |
 | [[Draft Proposal - Parcel\|Parcel]]                       | `BUILD_ROLE`               | Builds a new parcel on `CREATED` and `MODIFIED` |
 | [[Draft Proposal - Parcel\|Parcel]]                       | `DESTROY_ROLE`             | Destroys a parcel on `DESTROYED` and `MODIFIED` |
 
