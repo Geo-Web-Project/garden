@@ -19,16 +19,18 @@ User can claim a new license for a new parcel.
 ```solidity
 function claim(
 	address user,
-	uint64 baseCoordinate, 
-	uint256[] calldata path, 
-	uint256 initialContributionRate
+	uint256 initialContributionRate,
+	bytes calldata claimData
 )
+```
+
+```
+(uint64 baseCoordinate, uint256[] calldata path) = claimData
 ```
 
 - Requirements
 	- `msg.sender` has `CLAIM_ROLE`
 - Actions
-	- `setContributionRate` on [[Draft Proposal - Accountant\|Accountant]]
 	- Build parcel
 	- Mint license to user
 
