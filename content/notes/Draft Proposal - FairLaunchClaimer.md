@@ -1,7 +1,7 @@
-# Draft Proposal - AuctionETHClaimer
+# Draft Proposal - FairLaunchClaimer
 #proposal
 
-Date :: 2021-10-15
+Date :: 2021-01-30
 Author :: [[@gravenp]]
 
 ## Summary
@@ -11,7 +11,6 @@ A smart contract that enables land parcel claims during a reverse Dutch auction 
 | Name                  | Type      | Description                             |
 | --------------------- | --------- | --------------------------------------- |
 | `auctionStart` | `uint256` | Datetime to initialize the auction |
-| `auctionSlow` | `uint256` | Datetime to slow the bid reduction rate |
 | `auctionEnd` | `uint256` | Datetime that the auction concludes |
 | `startingBid` | `uint256` | The starting bid of the auction |
 | `endingBid` | `uint256` | The ongoing claim fee after the auction has concluded |
@@ -28,11 +27,21 @@ function checkAuctionPrice() public view
 ```
 
 ### Auction Claim
-Claim a new parcel with auction and initial contribution payments.
+Claim a new parcel with payment of an auction bid payment and initialization of a contribution stream.
 
 ```
-function auctionClaim(address to, uint64 baseCoordinate, uint256[] calldata path, uint256 initialContributionRate) public payable
+function auctionClaim(address user, uint256 initialContributionRate, bytes calldata claimData) public payable
 ```
+
+```
+(uint64 baseCoordinate, uint256[] calldata path) = claimData
+```
+
+-   Requirements
+    -   `msg.sender` has `CLAIM_ROLE`
+-   Actions
+    -   Build parcel
+    -   Mint license to user
 
 ### Pause
 Pause and unpause for use in an emergency. Pauses all claims.
@@ -51,66 +60,12 @@ function unpause() public
 | Name                       | Function Access       |
 | -------------------------- | --------------------- |
 | `PAUSE_ROLE`               | `pause`, `unpause`    |
+| `CLAIM_ROLE`               | `claim`    |
 
 ## Required Permissions
 | Contract                                                            | Role                | Reason                                                                                           |
 | ------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------ |
 | [[Draft Proposal - Parcel\|Parcel]]                                 | `BUILD_ROLE`        | Builds a new parcel with the given base coordinate and path, if the auction bid, payment, and value are valid. |
 | [[Draft Proposal - ERC721License\|License]]                               | `MINT_ROLE`         | Mints a license if parcel is successfully minted                                                 |
-| [[Draft Proposal - ETHExpirationCollector\|ETHExpirationCollector]] | `MODIFY_CONTRIBUTION_ROLE` | Sets initial contribution rate when mint is successful                                                |
-
-## Diagram
-```nomnoml
-[AuctionETHClaimer|
-	[<table> Functions |
-		auctionClaim() | public ||
-		checkAuctionPrice() | public ||
-		pause() 
-		unpause() | PAUSE_ROLE
-	]
-]
-
-[AuctionETHClaimer]-[<lollipop>BUILD_ROLE]
-[AuctionETHClaimer]-[<lollipop>MINT_ROLE]
-[AuctionETHClaimer]-[<lollipop>MODIFY_CONTRIBUTION_ROLE]
-
-[Parcel |
-	[Storage |
-		availabilityIndex |
-		landParcels
-	]
-	[<table> Functions |
-		build() | BUILD_ROLE || 
-		destroy() | DESTROY_ROLE || 
-    	append()
-		prepend()
-		trimStart()
-		trimEnd() | MODIFY_ROLE]
-]
-[ETHExpirationCollector | 
-	[Storage |
-		licenseExpirationTimestamps
-	]
-	[<table> Functions |
-		makePayment() | public ||
-		setContributionRate() | MODIFY_CONTRIBUTION_ROLE OR owner OR isApprovedForAll ||
-		moveFunds() | MODIFY_FUNDS_ROLE ||
-		migrateFunds() | MODIFY_FUNDS_ROLE ||
-		pause() 
-		unpause() | PAUSE_ROLE
-	]
-]
-[ERC721License | 
-	[<table> Functions |
-		safeMint() | MINT_ROLE || 
-		burn() | BURN_ROLE ||
-		pause() 
-		unpause() | PAUSE_ROLE || 
-    	isApprovalForAll() == true | OPERATOR_ROLE
-	]
-]
-
-[MODIFY_CONTRIBUTION_ROLE]-+[ETHExpirationCollector]
-[BUILD_ROLE]-+[Parcel]
-[MINT_ROLE]-+[ERC721License]
-```
+| [[Draft Proposal - AuctionSuperApp]] | `MODIFY_CONTRIBUTION_ROLE` | Sets initial contribution rate when mint is successful                                                |
+| [[Draft Proposal - Accountant]] | `MODIFY_CONTRIBUTION_ROLE` | Will modify license contribution rate on behalf of users                                                |

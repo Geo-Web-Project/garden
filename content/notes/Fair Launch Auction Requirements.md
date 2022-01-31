@@ -46,7 +46,7 @@ Implement a reverse Dutch auction for genesis land parcel claims in a new "Aucti
 
 
 ## Technical Spec
-[[Draft Proposal - AuctionETHClaimer]] includes the permissions mapping and interactions with the other supporting core contracts.
+[[Draft Proposal - FairLaunchClaimer]] includes the permissions mapping and interactions with the other supporting core contracts.
   
 ### For Further Consideration
 - We need to consider MEV and front-running scenarios where legitimate bids revealed create opportunities for bots/advanced participants
