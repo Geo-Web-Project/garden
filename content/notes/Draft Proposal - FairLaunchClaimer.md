@@ -26,11 +26,11 @@ Check the current global auction price to make a land parcel claim. See [[Fair L
 function checkAuctionPrice() public view
 ```
 
-### Auction Claim
+### Claim
 Claim a new parcel with payment of an auction bid payment and initialization of a contribution stream.
 
 ```
-function auctionClaim(address user, uint256 initialContributionRate, bytes calldata claimData) public payable
+function Claim(address user, uint256 initialContributionRate, bytes calldata claimData) public payable
 ```
 
 ```
