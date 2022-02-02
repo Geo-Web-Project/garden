@@ -30,7 +30,7 @@ Implement a reverse Dutch auction for genesis land parcel claims in a new "Aucti
 	- Starting Bid - the high starting price of the auction
 	- Ending Bid - the final/minimum required bid reached and maintained at the end of the auction (likely 0 in the case of the Geo Web)
 - The required auction bid to claim any parcel of land is a continuously calculated, global value
-	- Example logic for 10 ETH starting bid, 0 ETH ending bid, and 2 week auction:
+	- Example logic for 10 ETHx starting bid, 0 ETHx ending bid, and 2 week auction:
 		- For simplicity, the time since the auction started (in seconds) is represented below by *t* = (block.timestamp - auctionStart) & bids are denominated in ETH rather than wei
 		- If *t* < 0 
 			- Bid transactions fail
@@ -43,6 +43,7 @@ Implement a reverse Dutch auction for genesis land parcel claims in a new "Aucti
 	- The difference between the user's max bid and the reqBid calculated at block processing should not be collected (i.e. user only pays the reqBid price)
 - As part of the auction claim transaction, the claimant should set their self-assessed value for their parcel and start a valid corresponding network fee payment stream
 	- All standard parcel (e.g. contiguous, non-overlapping) and license (e.g. fee payments, min/max expiration) requirements apply to auction claims
+- Bids and payments should be made in ETHx (ETH wrapped for streaming with SuperFluid), so as to stay consistent with the ongoing streaming payment currency.  
 
 
 ## Technical Spec
