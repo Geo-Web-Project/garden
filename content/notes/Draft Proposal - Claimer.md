@@ -15,5 +15,11 @@ interface IClaimer {
 		uint256 initialContributionRate,
 		bytes calldata claimData
 	);
+
+	function claimPrice(
+		address user,
+		uint256 initialContributionRate,
+		bytes calldata claimData
+	) external view returns (uint256);
 }
 ```

@@ -85,3 +85,24 @@ None.
 
 ## Diagram
 ![[Pasted image 20220119134401.png]]
+```mermaid
+flowchart LR  
+ incrUserApp([Increase user -> app])
+ decrUserApp([Decrease user -> app])
+ delUserApp([Delete user -> app])
+
+ claim>"Claimer.claim()"]
+ delAppUser>"Delete (app -> user) and Decrease (app -> receiver)"]
+
+ incrUserApp -- "Unknown action" --> Revert
+ decrUserApp -- "Unknown action" --> Revert
+ delUserApp -- "Unknown action" --> delAppUser
+ 
+ incrUserApp -- "No user data" --> Revert
+ decrUserApp -- "No user data" --> Revert
+ delUserApp -- "No user data" --> delAppUser
+ 
+ incrUserApp -- "action == CLAIM" --> claim
+ decrUserApp -- "action == CLAIM" --> Revert
+ delUserApp -- "action == CLAIM" --> delAppUser
+```
