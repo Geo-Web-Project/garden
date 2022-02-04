@@ -90,19 +90,29 @@ flowchart LR
  incrUserApp([Increase user -> app])
  decrUserApp([Decrease user -> app])
  delUserApp([Delete user -> app])
-
+ decrAppUser([Decrease app -> user])
+ delAppUser([Delete app -> user])
+ revert>"Revert"]
  claim>"Claimer.claim()"]
- delAppUser>"Delete (app -> user) and Decrease (app -> receiver)"]
+ delAppUserAction>"Delete (app -> user) and Decrease (app -> receiver)"]
+ recreateAppUser>"Recreate (app -> user)"]
+ isCurOwner{"Is Current Owner?"}
+ setOutBid>"Set outstanding bid and Increase (app -> user)"]
 
- incrUserApp -- "Unknown action" --> Revert
- decrUserApp -- "Unknown action" --> Revert
- delUserApp -- "Unknown action" --> delAppUser
- 
- incrUserApp -- "No user data" --> Revert
- decrUserApp -- "No user data" --> Revert
- delUserApp -- "No user data" --> delAppUser
- 
+ incrUserApp -- "Unknown action" --> revert
+ incrUserApp -- "No user data" --> revert
  incrUserApp -- "action == CLAIM" --> claim
- decrUserApp -- "action == CLAIM" --> Revert
- delUserApp -- "action == CLAIM" --> delAppUser
+ incrUserApp -- "action == BID" --> isCurOwner
+ isCurOwner -- "No" --> outBid1{"Outstanding Bid Exists?"} -- "Yes" --> revert
+ outBid1 -- "No" --> newBidder{"New highest bid?"}
+ 
+ isCurOwner -- "Yes" --> outBid2{"Outstanding Bid Exists?"} 
+ 
+ newBidder -- "No" --> revert
+ newBidder -- "Yes" --> setOutBid
+
+ decrUserApp -- "action != BID" --> revert
+ delUserApp -- "action != BID" --> delAppUserAction
+ decrAppUser -- "action != BID" --> recreateAppUser
+ delAppUser -- "action != BID" --> recreateAppUser
 ```
