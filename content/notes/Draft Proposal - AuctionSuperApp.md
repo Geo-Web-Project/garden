@@ -115,4 +115,8 @@ flowchart LR
  delUserApp -- "action != BID" --> delAppUserAction
  decrAppUser -- "action != BID" --> recreateAppUser
  delAppUser -- "action != BID" --> recreateAppUser
+
+
+linkStyle 0,1,2,4,5,6,8,9,10,11 stroke:green,stroke-width:4px,color:green;
+linkStyle 7,12,13 stroke:orange,stroke-width:4px,color:orange;
 ```
